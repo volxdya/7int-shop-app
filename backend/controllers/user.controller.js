@@ -1,5 +1,9 @@
 const db = require('../database/db');
 
+const jwt = require(`jsonwebtoken`);
+const DEV_KEY = "DEV_KEY";
+
+
 class UserController {
     async createUser(req, res) {
         const { firstname, lastname, passwordUser, loginUser } = req.body;
@@ -18,6 +22,19 @@ class UserController {
         const users = await db.query(`SELECT * FROM userS`);
 
         res.send(users.rows);
+    }
+
+    async authentication(req, res) {
+        const { loginUser, passwordUser } = req.body;
+
+        const user = await db.query(`SELECT * FROM userS where loginUser = $1 and passwordUser = $2`, [loginUser, passwordUser]);
+
+        const token = jwt.sign(({
+            loginUser: user.firstname,
+            passwordUser: user.lastname
+        }), DEV_KEY);
+
+        res.send({ token: token });
     }
 }
 
