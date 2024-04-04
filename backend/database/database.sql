@@ -21,9 +21,11 @@ CREATE TABLE product
 CREATE TABLE shop
 (
     id SERIAL PRIMARY KEY,
+    user_id INTEGER,
     title VARCHAR(255),
     descriptionShop VARCHAR(255),
-    avatarShop VARCHAR(255)
+    avatarShop VARCHAR(255),
+    FOREIGN KEY (user_id) REFERENCES userS (id)
 );
 
 CREATE TABLE reviewProduct
@@ -31,6 +33,8 @@ CREATE TABLE reviewProduct
     id SERIAL PRIMARY KEY,
     title VARCHAR(255),
     photo VARCHAR(255),
+    author_id INTEGER,
+    product_id INTEGER,
     FOREIGN KEY (author_id) REFERENCES userS (id),
     FOREIGN KEY (product_id) REFERENCES product (id)
 );
