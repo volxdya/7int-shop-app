@@ -20,6 +20,7 @@ class ShopController {
 
         res.send(oneShop.rows);
     }
+
 }
 
 module.exports = new ShopController();
