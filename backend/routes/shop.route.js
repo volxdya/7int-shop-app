@@ -5,6 +5,8 @@ const router = new Router();
 
 router.post(`/create_shop`, ShopController.createShop);
 router.get(`/get_all_shops`, ShopController.getAllShops);
+router.put(`/update_shop`, ShopController.updateShop);
 router.get(`/get_one_shop`, ShopController.getOneShop);
+router.get(`/delete_shop`, ShopController.deleteShop);
 
 module.exports = router;

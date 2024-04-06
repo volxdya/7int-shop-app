@@ -36,6 +36,25 @@ class UserController {
 
         res.send({ token: token });
     }
+
+    async updateUser(req, res) {
+        const { loginUser, passwordUser, avatarUser, id } = req.body;
+
+        const user = await db.query(`UPDATE userS set loginUser = $1, passwordUser = $2, avatarUser = $3 where id = $4 RETURNING *`, [loginUser, passwordUser, avatarUser, id]);
+
+        res.send(user.rows);
+    }
+
+    async deleteUser(req, res) {
+        const { id } = req.query;
+        await db.query('DELETE FROM reviewProduct WHERE author_id = $1', [id]);
+
+        await db.query('DELETE FROM shop WHERE user_id = $1', [id]);
+
+        const result = await db.query('DELETE FROM userS WHERE id = $1', [id]);
+
+        res.send(result.command);
+    }
 }
 
 module.exports = new UserController();

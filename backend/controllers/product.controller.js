@@ -20,6 +20,24 @@ class ProductController {
 
         res.send(product.rows);
     }
+
+    async updateProduct(req, res) {
+        const { title, descriptionProduct, avatarProduct, id } = req.body;
+
+        const product = await db.query(`UPDATE product set title = $1, descriptionProduct = $2, avatarProduct = $3 where id = $4 RETURNING *`, [title, descriptionProduct, avatarProduct, id]);
+
+        res.send(product.rows);
+    }
+
+    async deleteProduct(req, res) {
+        const { id } = req.query;
+
+        await db.query('DELETE FROM reviewProduct WHERE product_id = $1', [id]);
+
+        const result = await db.query('DELETE FROM product WHERE id = $1', [id]);
+
+        res.send(result);
+    }
 }
 
 module.exports = new ProductController();
