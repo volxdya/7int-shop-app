@@ -12,6 +12,8 @@ CREATE TABLE product
 (
     id SERIAL PRIMARY KEY,
     shop_id INTEGER,
+    price INTEGER,
+    count INTEGER,
     descriptionProduct VARCHAR(255),
     avatarProduct VARCHAR(255),
     title VARCHAR(255),

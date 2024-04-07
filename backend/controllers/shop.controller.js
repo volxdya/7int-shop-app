@@ -2,9 +2,9 @@ const db = require(`../database/db`);
 
 class ShopController {
     async createShop(req, res) {
-        const { title, user_id } = req.body;
+        const { title, user_id, descriptionShop, avatarShop } = req.body;
 
-        const newShop = await db.query(`INSERT INTO shop (title, user_id, descriptionShop, avatarShop) values ($1, $2, $3, $4) RETURNING *`, [title, user_id, "", ""]);
+        const newShop = await db.query(`INSERT INTO shop (title, user_id, descriptionShop, avatarShop) values ($1, $2, $3, $4) RETURNING *`, [title, user_id, descriptionShop, avatarShop]);
         res.send(newShop.rows[0]);
     }
 

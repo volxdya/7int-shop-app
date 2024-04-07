@@ -47,6 +47,9 @@ class UserController {
 
     async deleteUser(req, res) {
         const { id } = req.query;
+        const shop = await db.query(`SELECT * FROM shop where user_id = $1`, [id]);
+        await db.query(`DELETE FROM product WHERE shop_id = $1`, [shop.rows[0].id]);
+
         await db.query('DELETE FROM reviewProduct WHERE author_id = $1', [id]);
 
         await db.query('DELETE FROM shop WHERE user_id = $1', [id]);
