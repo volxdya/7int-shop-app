@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+a {
+    text-decoration: none;
+}
+
+body {
+    overflow-x: hidden;
+    font-family: "Roboto", sans-serif;
+    zoom: 100%;
+    color: white;
+}
+
+
+.wrapper {
+    background-image: url('https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/0f/d0/a2/0fd0a262-2ca9-ddcf-797b-638bbed55f35/artwork.jpg/600x600bb.jpg');
+    width: 100%;
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    height: 1050px;
+    filter: blur(12px) brightness(0.8);
+}
+
+.content {
+    position: absolute;
+    top: 0;
+    z-index: 2;
+}

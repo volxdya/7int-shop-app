@@ -1,0 +1,25 @@
+header {
+    display: flex;
+    justify-content: center;
+    height: 75px;
+    gap: 75px;
+    width: 1920px;
+    align-items: center;
+}
+
+.main-title {
+    font-weight: 100;
+    font-size: 50px;
+    color: white;
+}
+
+.header-link {
+    color: white;
+    font-size: 25px;
+    font-weight: 300;
+}
+.header-link:hover, .main-title:hover {
+    color: rgb(218, 218, 218);
+    cursor: pointer;
+    transition: color 0.2s;
+}
