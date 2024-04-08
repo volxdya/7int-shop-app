@@ -1,17 +1,22 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Footer } from './components/Footer/Footer';
 import { Header } from './components/Header/Header';
+import { Profile } from './components/Profile/Profile';
 function App() {
 
   return (
-    <div>
+    <BrowserRouter>
       <div className="wrapper" />
       <div className="content">
         <Header />
         <div className="container">
+          <Routes>
+            <Route path="/profile" element={<Profile />} />
+          </Routes>
           <Footer />
         </div>
       </div>
-    </div>
+    </BrowserRouter>
   )
 }
 export default App

@@ -1,11 +1,14 @@
+import { Link } from 'react-router-dom';
 import './Header.css';
 
 export function Header() {
     return (
         <header>
             <a href="#" className="header-link">Settings</a>
-            <h2 className="main-title">7int</h2>
-            <a href="#" className="header-link">Profile</a>
+            <Link to="/">
+                <h2 className="main-title">7int</h2>
+            </Link>
+            <Link to="/profile" className="header-link">Profile</Link>
         </header>
     )
 }

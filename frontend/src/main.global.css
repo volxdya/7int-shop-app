@@ -12,19 +12,32 @@ body {
     color: white;
 }
 
-
 .wrapper {
-    background-image: url('https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/0f/d0/a2/0fd0a262-2ca9-ddcf-797b-638bbed55f35/artwork.jpg/600x600bb.jpg');
+    background-image: url("public/main bgc.png");
     width: 100%;
     position: relative;
     background-position: center;
     background-size: cover;
-    height: 1050px;
-    filter: blur(12px) brightness(0.8);
+    height: 911px;
 }
 
 .content {
     position: absolute;
     top: 0;
+    height: 900px;
     z-index: 2;
+}
+
+.content {
+    overflow-x: hidden;
+    overflow: scroll;
+}
+
+.content::-webkit-scrollbar {
+    display: none;
+}
+
+.image {
+    border-radius: 50%;
+    object-fit: cover;
 }
