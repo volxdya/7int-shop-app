@@ -12,6 +12,7 @@ function App() {
         <div className="container">
           <Routes>
             <Route path="/profile" element={<Profile />} />
+            {/* <Route path="/register" element={<Register />} /> */}
           </Routes>
           <Footer />
         </div>

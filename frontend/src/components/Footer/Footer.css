@@ -2,6 +2,10 @@
     color: #d6d6d6;
     font-size: 20px;
 }
+.footer-link:hover {
+    color: #c1c1c1;
+    transition: color 0.3s;
+}
 
 .footer-7int {
     font-size: 25px;
