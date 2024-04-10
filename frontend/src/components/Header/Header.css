@@ -26,36 +26,3 @@ header {
     cursor: pointer;
     transition: color 0.2s;
 }
-
-.modal-content {
-    height: 850px;
-    background-color: #1F1F1F;
-    border-radius: 25px;
-}
-
-.modal-header {
-    border-bottom: 1px solid #000000;
-}
-
-.btn-close {
-    color: white;
-}
-
-.header-modal {
-    display: flex;
-    justify-content: space-between;
-}
-
-.link-modal a {
-    color: white;
-    font-size: 20px;
-}
-
-.link-modal a:hover {
-    color: rgb(206, 206, 206);
-    transition: color 0.2s;
-}
-
-.link-modal {
-    padding-top: 5px;
-}

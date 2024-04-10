@@ -1,0 +1,67 @@
+.modal-header-content,
+.modal-body {
+    padding: 0 25px 0 25px;
+}
+
+.modal-body {
+    margin-top: 25px;
+}
+
+.footer-modal-link {
+    color: #d6d6d6;
+    font-size: 18px;
+}
+
+.footer-modal-link:hover {
+    color: #c1c1c1;
+    transition: color 0.3s;
+}
+
+.footer-modal-7int {
+    font-size: 19px;
+}
+
+.modal-footer-content {
+    padding: 25px 25px 25px 25px;
+}
+
+.modal-content {
+    height: 850px;
+    background-color: #1F1F1F;
+    border-radius: 25px;
+}
+
+.modal-header-content {
+    padding-bottom: 25px;
+}
+
+.btn-close {
+    color: white;
+}
+
+.header-modal {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.link-modal a {
+    color: white;
+    font-size: 20px;
+}
+
+.link-modal a:hover {
+    color: rgb(206, 206, 206);
+    transition: color 0.2s;
+}
+
+.link-modal {
+    padding-top: 5px;
+}
+
+.close:hover {
+    background: #484848;
+    padding: 0.2px;
+    border-radius: 10px;
+    cursor: pointer;
+}

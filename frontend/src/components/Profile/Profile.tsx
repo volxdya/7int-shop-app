@@ -4,7 +4,7 @@ import './Profile.css';
 export function Profile() {
     return (
         <>
-            <h1 className="mt-3">PROFILE</h1>
+            <h1 className="mt-3 upperCase">Profile</h1>
             <div className="row mt-5">
                 <div className="col-2">
                     <img
@@ -16,11 +16,11 @@ export function Profile() {
                 </div>
                 <div className="col-7 mx-5">
                     <h1 className="profile-username">Lagosta</h1>
-                    <p className="profile-description">SOME DESCRIPTION SOME DESCRIPTION SOME DESCRIPTION SOME DESCRIPTION SOME DESCRIPTION SOME DESCRIPTION SOME DESCRIPTION SOME DESCRIPTION </p>
+                    <p className="profile-description upperCase">description</p>
                 </div>
             </div>
             <div className="mt-5">
-                <h1>BUY PRODUCTS</h1>
+                <h1 className="upperCase">Buy products</h1>
                 <CardProduct />
             </div>
         </>

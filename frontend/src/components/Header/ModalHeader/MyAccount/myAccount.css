@@ -1,0 +1,33 @@
+.button-change {
+    border: none;
+    outline: none;
+    background: white;
+    color: #000000;
+    border-radius: 10px;
+    width: 100%;
+    font-weight: 300;
+    margin-top: 60px;
+    height: 50px;
+    font-size: 22px;
+}
+.input-change-account {
+    height: 45px;
+    border: none;
+    outline: none;
+    font-weight: 700;
+    font-size: 19px;
+    border-radius: 10px;
+    padding-left: 15px;
+    width: 100%;
+}
+.change-account {
+    display: flex;
+    justify-content: center;
+}
+.change-form-account {
+    width: 350px;
+}
+.input-change-account::placeholder {
+    color: black;
+    text-transform: uppercase;
+}

@@ -44,3 +44,7 @@ ul, ol {
     border-radius: 50%;
     object-fit: cover;
 }
+
+.upperCase {
+    text-transform: uppercase;
+}
