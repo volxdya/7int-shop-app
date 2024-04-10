@@ -12,6 +12,9 @@ body {
     color: white;
 }
 
+ul, ol {
+    list-style: none;
+}
 .wrapper {
     background-image: url("public/main bgc.png");
     width: 100%;
