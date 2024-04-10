@@ -1,5 +1,6 @@
 import axios from "axios";
 import { api } from "../../../env";
+
 interface Props {
     password: string;
     login: string;
@@ -17,7 +18,5 @@ export function useRegister({ password, login, clear }: Props) {
     }).catch((err) => {
         clear();
         console.log(err);
-    })
-
-    return null;
+    });
 }

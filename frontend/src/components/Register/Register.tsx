@@ -28,7 +28,6 @@ export function Register() {
         <form onSubmit={handleSubmit}>
             <input type="text" placeholder="Логин" value={login} onChange={handleChangeLogin} />
             <input type="text" placeholder="Пароль" value={password} onChange={handleChangePassword} />
-
             <button>SEND</button>
         </form>
     )
