@@ -1,18 +1,25 @@
 import { Modal } from "react-bootstrap";
 import { Close } from "../../../../icons/Close";
+import { Back } from "../../../../icons/Back";
 interface Props {
     handleClose: () => void;
+    setCurrent: (value: React.SetStateAction<string>) => void;
 }
 
-export function MyAccountHeader({ handleClose }: Props) {
+export function MyAccountHeader({ handleClose, setCurrent }: Props) {
     return (
         <>
             <div className="header-modal mt-4">
                 <Modal.Title>
                     <span className="upperCase">my account</span>
                 </Modal.Title>
-                <div onClick={handleClose}>
-                    <Close />
+                <div>
+                    <div onClick={() => setCurrent("")}>
+                        <Back />
+                    </div>
+                    <div onClick={handleClose} className="mt-2">
+                        <Close />
+                    </div>
                 </div>
             </div>
             <div className="mt-4">

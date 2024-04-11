@@ -14,9 +14,7 @@ export function useRegister({ password, login, clear }: Props) {
         loginUser: login,
     }).then((resp) => {
         clear();
-        console.log(resp.data);
     }).catch((err) => {
         clear();
-        console.log(err);
     });
 }

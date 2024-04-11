@@ -5,13 +5,14 @@ export function MyAccountBody() {
         <div className="change-account">
             <form className="change-form-account">
                 <div>
-                    <input type="text" className="input-change-account" placeholder="lagosta" />
-                    <input type="text" className="input-change-account mt-3" placeholder="Enter description" />
-                    <input type="text" className="input-change-account mt-3" placeholder="Enter avatar" />
-                    <input type="text" className="input-change-account mt-3" placeholder="Enter password" />
-                    <button className="upperCase button-change">Change</button>
+                    <input type="text" className="input-modal" placeholder="lagosta" />
+                    <input type="text" className="input-modal mt-3" placeholder="Enter description" />
+                    <input type="text" className="input-modal mt-3" placeholder="Enter avatar" />
+                    <input type="text" className="input-modal mt-3" placeholder="Enter password" />
+                    <button className="upperCase button-change mt-5">Change</button>
                 </div>
             </form>
+        
         </div>
     )
 }

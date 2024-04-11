@@ -58,8 +58,7 @@
 .link-modal {
     padding-top: 5px;
 }
-
-.close:hover {
+.close:hover, .back:hover {
     background: #484848;
     padding: 0.2px;
     border-radius: 10px;

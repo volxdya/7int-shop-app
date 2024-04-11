@@ -6,11 +6,10 @@
     border-radius: 10px;
     width: 100%;
     font-weight: 300;
-    margin-top: 60px;
     height: 50px;
     font-size: 22px;
 }
-.input-change-account {
+.input-modal {
     height: 45px;
     border: none;
     outline: none;
@@ -27,7 +26,7 @@
 .change-form-account {
     width: 350px;
 }
-.input-change-account::placeholder {
+.input-modal::placeholder {
     color: black;
     text-transform: uppercase;
 }

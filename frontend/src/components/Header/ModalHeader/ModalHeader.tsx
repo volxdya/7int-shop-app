@@ -3,6 +3,12 @@ import { ModalWindow } from "../../Modal/Modal";
 import { MyAccountHeader } from "./MyAccount/MyAccountHeader";
 import { MyAccountBody } from "./MyAccount/MyAccountBody";
 import { Close } from "../../../icons/Close";
+import { PromocodesHeader } from "./Promocodes/PromocodesHeader";
+import { PromocodesBody } from "./Promocodes/PromocodesBody";
+import { SupportHeader } from "./Support/SupportHeader";
+import { SuppoerBody } from "./Support/SupportBody";
+import { CreateShopBody } from "./CreateShop/CreateShopBody";
+import { CreateShopHeader } from "./CreateShop/CreateShopHeader";
 
 interface Props {
     show: boolean;
@@ -55,14 +61,59 @@ export function ModalHeader({ show, handleClose, current, setCurrent }: Props) {
     );
 
     if (current == "MY ACCOUNT") {
+
         contentHeader = (
-            <MyAccountHeader handleClose={handleClose}/>
+            <MyAccountHeader
+                handleClose={handleClose}
+                setCurrent={setCurrent}
+            />
+        );
+        contentBody = (
+            <MyAccountBody />
+        );
+
+    } else if (current == "PROMOCODES") {
+
+        contentHeader = (
+            <PromocodesHeader
+                handleClose={handleClose}
+                setCurrent={setCurrent}
+            />
+        );
+        contentBody = (
+            <PromocodesBody />
+        );
+    }
+    else if (current == "SUPPORT") {
+
+        contentHeader = (
+            <SupportHeader
+                handleClose={handleClose}
+                setCurrent={setCurrent}
+            />
+        );
+        contentBody = (
+            <SuppoerBody />
+        );
+    }
+    else if (current == "CREATE SHOP") {
+
+        contentHeader = (
+            <CreateShopHeader
+                handleClose={handleClose}
+                setCurrent={setCurrent}
+            />
+        )
+        contentBody = (
+            <CreateShopBody />
+        )
+    } else if (current == "TOKEN") {
+        contentHeader = (
+            <div>auth</div>
         )
 
         contentBody = (
-            <>
-                <MyAccountBody />
-            </>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, minima minus. Nemo tempore assumenda error illo accusamus debitis fuga doloribus deleniti odio excepturi quos incidunt commodi, quas quidem repudiandae esse.</p>
         )
     }
 
