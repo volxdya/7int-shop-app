@@ -3,6 +3,7 @@ import './Header.css';
 import { useState } from 'react';
 import { ModalHeader } from './ModalHeader/ModalHeader';
 import { getItem } from '../../utils/localStorage';
+import { useUserData } from '../../store/useUserData';
 
 export function Header() {
 
@@ -22,6 +23,9 @@ export function Header() {
         setCurrent("TOKEN");
         handleShow();
     }
+
+    const { userData } = useUserData();
+
     return (
         <header>
             <a href="#" onClick={handleShow} className="header-link">Settings</a>
@@ -33,7 +37,7 @@ export function Header() {
             {!token || token === "" || token === undefined || token === null ? (
                 <a href="#" onClick={handleShowToken} className="header-link">Profile</a>
             ) : (
-                <Link to="/profile" className="header-link">Profile</Link>
+                <Link to="/profile" className="header-link">{userData.login}</Link>
             )}
 
             <ModalHeader

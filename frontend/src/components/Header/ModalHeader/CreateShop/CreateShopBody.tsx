@@ -1,7 +1,7 @@
 export function CreateShopBody() {
     return (
-        <div className="change-account">
-            <form className="change-form-account">
+        <div className="form-container">
+            <form className="form">
                 <div>
                     <input type="text" className="input-modal" placeholder="Enter title shop" />
                     <input type="text" className="input-modal mt-3" placeholder="Enter avatar shop" />

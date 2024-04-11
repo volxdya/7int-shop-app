@@ -3,8 +3,8 @@ import './Support.css';
 export function SuppoerBody() {
     return (
         <>
-            <div className="change-account">
-                <form className="change-form-account">
+            <div className="form-container">
+                <form className="form">
                     <div>
                         <input type="text" className="input-modal" placeholder="Enter request help" />
 

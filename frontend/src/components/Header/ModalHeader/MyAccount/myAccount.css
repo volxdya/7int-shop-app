@@ -19,11 +19,11 @@
     padding-left: 15px;
     width: 100%;
 }
-.change-account {
+.form-container {
     display: flex;
     justify-content: center;
 }
-.change-form-account {
+.form {
     width: 350px;
 }
 .input-modal::placeholder {

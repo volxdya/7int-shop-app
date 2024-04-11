@@ -3,8 +3,8 @@ import './promocodes.css';
 export function PromocodesBody() {
     return (
         <>
-            <div className="change-account">
-                <form className="change-form-account">
+            <div className="form-container">
+                <form className="form">
                     <div>
                         <input type="text" className="input-modal" placeholder="Enter promocode" />
                         <button className="upperCase button-change mt-4">Activate</button>

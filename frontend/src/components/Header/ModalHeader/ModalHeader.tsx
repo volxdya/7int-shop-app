@@ -9,6 +9,9 @@ import { SupportHeader } from "./Support/SupportHeader";
 import { SuppoerBody } from "./Support/SupportBody";
 import { CreateShopBody } from "./CreateShop/CreateShopBody";
 import { CreateShopHeader } from "./CreateShop/CreateShopHeader";
+import { AuthHeader } from "./Auth/AuthHeader";
+import { AuthBody } from "./Auth/AuthBody";
+import { useUserData } from "../../../store/useUserData";
 
 interface Props {
     show: boolean;
@@ -20,7 +23,9 @@ interface Props {
 export function ModalHeader({ show, handleClose, current, setCurrent }: Props) {
 
     const itemsHeaderModal: Array<string> = ["MY ACCOUNT", "CHANGE THEME", "SORTING", "CREATE SHOP", "PROMOCODES", "SUPPORT"];
-    console.log(current);
+
+    const { userData } = useUserData();
+
     let contentHeader = (
         <>
             <div className="header-modal mt-4">
@@ -34,7 +39,7 @@ export function ModalHeader({ show, handleClose, current, setCurrent }: Props) {
             <div className="row mt-3">
                 <div className="col-3">
                     <img
-                        src="https://sun9-41.userapi.com/impg/AOmhNBr8F6JzrV9JP9jvDy3C7beWlHJu0GkA7w/2iNXYNnJl3U.jpg?size=510x680&quality=95&sign=d186a1f497e240561a9f411ea228ba12&c_uniq_tag=j0xABRyg5Pzl0IbdiN84TLksOeHGpGWtPjn9DuFGD5I&type=album"
+                        src={userData.avatar}
                         alt="123"
                         height={120}
                         width={120}
@@ -42,7 +47,7 @@ export function ModalHeader({ show, handleClose, current, setCurrent }: Props) {
                     />
                 </div>
                 <div className="col-8 px-5">
-                    <h4>lagosta</h4>
+                    <h4>{userData.login}</h4>
                 </div>
             </div>
         </>
@@ -50,9 +55,9 @@ export function ModalHeader({ show, handleClose, current, setCurrent }: Props) {
 
     let contentBody = (
         <>
-            {itemsHeaderModal.map((item) => {
+            {itemsHeaderModal.map((item, index) => {
                 return (
-                    <div className="link-modal">
+                    <div className="link-modal" key={index}>
                         <a href="#" onClick={() => setCurrent(item)}>{item}</a>
                     </div>
                 )
@@ -109,11 +114,14 @@ export function ModalHeader({ show, handleClose, current, setCurrent }: Props) {
         )
     } else if (current == "TOKEN") {
         contentHeader = (
-            <div>auth</div>
+            <AuthHeader
+                handleClose={handleClose}
+                setCurrent={setCurrent}
+            />
         )
 
         contentBody = (
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, minima minus. Nemo tempore assumenda error illo accusamus debitis fuga doloribus deleniti odio excepturi quos incidunt commodi, quas quidem repudiandae esse.</p>
+            <AuthBody />
         )
     }
 
