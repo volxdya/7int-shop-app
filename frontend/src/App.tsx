@@ -10,9 +10,12 @@ const App = () => {
       <div className="content">
         <Header />
         <div className="container">
+          <button onClick={() => {
+            localStorage.clear();
+            location.reload();
+          }}>Log out</button>
           <Routes>
             <Route path="/profile" element={<Profile />} />
-  
             <Route path="/register" element={<Register />} />
           </Routes>
           <Footer />

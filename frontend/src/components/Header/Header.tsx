@@ -34,7 +34,7 @@ export function Header() {
                 <h2 className="main-title">7int</h2>
             </Link>
 
-            {!token || token === "" || token === undefined || token === null ? (
+            {!token || token === "" || token === undefined || token === null || !userData ? (
                 <a href="#" onClick={handleShowToken} className="header-link">Profile</a>
             ) : (
                 <Link to="/profile" className="header-link">{userData.login}</Link>

@@ -15,6 +15,7 @@ export function useAuth({ password, login, clear }: Props) {
     }).then((resp) => {
         clear();
         setItem("token", resp.data.token);
+        location.reload();
     }).catch((err) => {
         clear();
         console.log(err);

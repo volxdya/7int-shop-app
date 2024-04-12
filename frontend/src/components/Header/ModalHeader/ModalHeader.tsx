@@ -28,40 +28,52 @@ export function ModalHeader({ show, handleClose, current, setCurrent }: Props) {
 
     let contentHeader = (
         <>
-            <div className="header-modal mt-4">
-                <Modal.Title>
-                    <span className="upperCase">Settings</span>
-                </Modal.Title>
-                <div onClick={handleClose}>
-                    <Close />
-                </div>
-            </div>
-            <div className="row mt-3">
-                <div className="col-3">
-                    <img
-                        src={userData.avatar}
-                        alt="123"
-                        height={120}
-                        width={120}
-                        className="image"
-                    />
-                </div>
-                <div className="col-8 px-5">
-                    <h4>{userData.login}</h4>
-                </div>
-            </div>
+            {userData ? (
+                <>
+                    <div className="header-modal mt-4">
+                        <Modal.Title>
+                            <span className="upperCase">Settings</span>
+                        </Modal.Title>
+                        <div onClick={handleClose}>
+                            <Close />
+                        </div>
+                    </div>
+                    <div className="row mt-3">
+                        <div className="col-3">
+                            <img
+                                src={userData.avatar}
+                                alt="123"
+                                height={120}
+                                width={120}
+                                className="image"
+                            />
+                        </div>
+                        <div className="col-8 px-5">
+                            <h4>{userData.login}</h4>
+                        </div>
+                    </div>
+                </>
+            ) : (
+                setCurrent("TOKEN")
+            )}
         </>
     );
 
     let contentBody = (
         <>
-            {itemsHeaderModal.map((item, index) => {
-                return (
-                    <div className="link-modal" key={index}>
-                        <a href="#" onClick={() => setCurrent(item)}>{item}</a>
-                    </div>
-                )
-            })}
+            {userData ? (
+                <>
+                    {itemsHeaderModal.map((item, index) => {
+                        return (
+                            <div className="link-modal" key={index}>
+                                <a href="#" onClick={() => setCurrent(item)}>{item}</a>
+                            </div>
+                        )
+                    })}
+                </>
+            ) : (
+                setCurrent("TOKEN")
+            )}
         </>
     );
 

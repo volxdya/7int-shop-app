@@ -44,7 +44,7 @@ export function AuthBody() {
                             value={password}
                             onChange={handleChangePassword}
                         />
-                        <p className="text-center pt-3 helper">Do not worry. Your data is completely safe. Our highly qualified developers took care of this.</p>
+                        <p className="text-center pt-3 helper">You need LOG IN. Do not worry. Your data is completely safe. Our highly qualified developers took care of this.</p>
                         <button className="upperCase button-change mt-5">AUTH</button>
                     </div>
                 </form>
