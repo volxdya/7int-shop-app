@@ -12,7 +12,6 @@ export function MyAccountBody() {
     const [avatarUser, setAvatar] = useState("");
     const [passwordUser, setPassword] = useState("");
     const [descriptionUser, setDescription] = useState("");
-    const [isLoad, setIsLoad] = useState(true);
 
     function handleChangeAvatar(event: ChangeEvent<HTMLInputElement>) {
         setAvatar(event.target.value);
