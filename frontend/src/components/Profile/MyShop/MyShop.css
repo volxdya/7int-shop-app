@@ -1,0 +1,54 @@
+.card-product-shop img {
+    width: 288px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.card-product-shop {
+    background-color: #fff;
+    width: 288px;
+    height: 460px;
+    border-radius: 15px;
+}
+
+.card-product-shop p {
+    padding-left: 25px;
+    margin: 0;
+}
+
+.card-title-shop,
+.card-price-shop {
+    font-weight: 300;
+    color: rgb(72, 72, 72);
+    font-size: 19px;
+}
+
+.card-shop-shop {
+    color: black;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.controls-shop-item {
+    height: 65px;
+}
+
+.edit-button-shop{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: none;
+    border: 2px solid black;
+}
+
+.add-button-shop {
+    font-size: 25px;
+    border-radius: 50%;
+    width: 100px;
+    background: none;
+    font-size: 35px;
+    font-weight: 300;
+    border: 1px solid black;
+    height: 100px;
+}

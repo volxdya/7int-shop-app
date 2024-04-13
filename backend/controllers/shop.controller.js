@@ -3,10 +3,11 @@ const db = require(`../database/db`);
 class ShopController {
     async createShop(req, res) {
         const { title, user_id, avatarShop } = req.body;
-
+        const startAvatar = "https://static.wikia.nocookie.net/7d71f1b9-1031-4486-b4ec-ce118cd48b55/scale-to-width/755";
         try {
-            const newShop = await db.query(`INSERT INTO shop (title, user_id, avatarShop) values ($1, $2, $3) RETURNING *`, [title, user_id, avatarShop]);
+            const newShop = await db.query(`INSERT INTO shop (title, user_id, avatarShop) values ($1, $2, $3) RETURNING *`, [title, user_id, startAvatar]);
             res.send(newShop.rows[0]);
+
         } catch (err) {
             res.sendStatus(400);
         }
@@ -34,7 +35,6 @@ class ShopController {
 
 
         try {
-
             const shop = await db.query(`UPDATE shop set title = $1, descriptionShop = $2, avatarShop = $3 where id = $4 RETURNING *`, [title, descriptionShop, avatarShop, id]);
 
             res.send(shop.rows);

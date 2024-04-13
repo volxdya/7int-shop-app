@@ -1,5 +1,12 @@
 .card-shop {
     width: 200px;
     display: flex;
+    cursor: pointer;
     justify-content: center;
+}
+.shop-title {
+    color: white;
+}
+.shop-title:hover {
+    color: rgb(207, 207, 207);
 }

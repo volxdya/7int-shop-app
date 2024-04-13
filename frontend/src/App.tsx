@@ -5,6 +5,7 @@ import { Suspense, lazy } from 'react';
 const App = () => {
 
   const LazyProfile = lazy(() => import('./components/Profile/Profile'));
+  const LazyMyShop = lazy(() => import('./components/Profile/MyShop/MyShop'));
 
   return (
     <Suspense fallback={<div>Loading</div>}>
@@ -15,6 +16,7 @@ const App = () => {
           <div className="container">
             <Routes>
               <Route path="/profile" element={<LazyProfile />} />
+              <Route path="/my-shop/:id" element={<LazyMyShop />} />
             </Routes>
             <Footer />
           </div>

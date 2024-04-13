@@ -19,13 +19,14 @@
 
 .card-title,
 .card-price {
-    font-weight: lighter;
-    color: rgb(106, 106, 106);
+    font-weight: 300;
+    color: rgb(72, 72, 72);
     font-size: 19px;
 }
 .card-shop {
     font-weight: 400;
     font-size: 20px;
+    color: black;
 }
 .card-product:hover {
     transform: scale(1.01);

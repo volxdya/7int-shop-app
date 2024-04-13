@@ -5,3 +5,9 @@
     font-size: 20px;
     font-weight: 300;
 }
+.my-shop-link {
+    color: white;
+}
+.my-shop-link:hover {
+    color: rgb(221, 221, 221);
+}

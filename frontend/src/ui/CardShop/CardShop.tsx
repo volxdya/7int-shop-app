@@ -14,7 +14,7 @@ export function CardShop({ title, avatarshop }: Props) {
                     height={200}
                     className="image"
                 />
-                <p className="text-center">{title}</p>
+                <p className="text-center shop-title">{title}</p>
             </div>
         </div>
     )

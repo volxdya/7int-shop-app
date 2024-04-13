@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { currentId } from '../../api/user/currentId';
 import { useGetUserShops } from '../../store/useGetUserShops';
 import { useUserData } from '../../store/useUserData';
@@ -14,7 +15,7 @@ export default function Profile() {
             <>
                 <h1 className="mt-3 upperCase">Profile</h1>
                 <div className="row mt-5">
-                    <div className="col-2"> 
+                    <div className="col-2">
                         <img
                             src={userData.avataruser}
                             alt={"User's avatar " + userData.loginuser}
@@ -32,15 +33,26 @@ export default function Profile() {
                 {shops && (
                     <div className="mt-5">
                         <h1 className="upperCase">your stores</h1>
-                        <div className="d-flex justify-content-center gap-5 flex-wrap mt-5">
-                            {shops.map((item) => {
-                                return (
-                                    <CardShop title={item.title} avatarshop={item.avatarshop} />
-                                )
-                            })}
+                        <div className='d-flex gap-5 flex-wrap mt-5'>
+                            <div className="d-flex flex-wrap gap-5">
+                                {shops.map((item) => {
+                                    return (
+                                        <>
+                                            <Link to={"/my-shop/" + item.id} className="my-shop-link">
+                                                <CardShop
+                                                    title={item.title}
+                                                    avatarshop={item.avatarshop}
+                                                    key={item.id}
+                                                />
+                                            </Link>
+                                        </>
+                                    )
+                                })}
+                            </div>
                         </div>
-                    </div>
-                )}
+                    </div >
+                )
+                }
 
                 <div className="mt-5">
                     <h1 className="upperCase">Buy products</h1>
