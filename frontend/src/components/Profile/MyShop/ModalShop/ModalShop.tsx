@@ -4,6 +4,8 @@ import { ModalCreateBody } from "./Create/ModalCreateBody";
 import { ModalCreateHeader } from "./Create/ModalCreateHeader";
 import { ModalChangeHeader } from "./Change/ModalChangeHeader";
 import { ModalChangeBody } from "./Change/ModalChangeBody";
+import { EditProductHeader } from "./EditProduct/EditProductHeader";
+import { EditProductBody } from "./EditProduct/EditProductBody";
 
 interface Props {
     show: boolean;
@@ -24,7 +26,7 @@ export function ModalShop({ show, handleClose, current, setCurrent }: Props) {
 
     if (current == "add") {
         contentHeader = (
-            <ModalCreateHeader handleClose={handleClose}/>
+            <ModalCreateHeader handleClose={handleClose} />
         );
 
         contentBody = (
@@ -32,13 +34,23 @@ export function ModalShop({ show, handleClose, current, setCurrent }: Props) {
         );
     }
 
-    if (current == "change") {
+    else if (current == "change") {
         contentHeader = (
-            <ModalChangeHeader handleClose={handleClose}/>
+            <ModalChangeHeader handleClose={handleClose} />
         );
 
         contentBody = (
             <ModalChangeBody />
+        )
+    }
+
+    else if (current == "edit") {
+        contentHeader = (
+            <EditProductHeader handleClose={handleClose} />
+        );
+
+        contentBody = (
+            <EditProductBody />
         )
     }
 
