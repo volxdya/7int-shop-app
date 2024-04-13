@@ -64,3 +64,9 @@
     border-radius: 10px;
     cursor: pointer;
 }
+.link-modal-auth {
+    color: white;
+}
+.link-modal-auth:hover {
+    color: #d6d6d6;
+}

@@ -2,10 +2,11 @@ import { ChangeEvent, FormEvent, useState } from "react"
 import { useUserData } from "../../../../store/useUserData";
 import { useCreateShop } from "../../../../api/user/createShop";
 import { Form } from "./Form/Form";
+import { currentId } from "../../../../api/user/currentId";
 
 
 export function CreateShopBody() {
-    const { userData } = useUserData();
+    const { userData } = useUserData(currentId());
     const user_id = userData.id;
 
     const [titleShopValue, setTitleShopValue] = useState("");

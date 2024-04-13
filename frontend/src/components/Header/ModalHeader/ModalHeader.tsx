@@ -12,6 +12,7 @@ import { CreateShopHeader } from "./CreateShop/CreateShopHeader";
 import { AuthHeader } from "./Auth/AuthHeader";
 import { AuthBody } from "./Auth/AuthBody";
 import { useUserData } from "../../../store/useUserData";
+import { currentId } from "../../../api/user/currentId";
 
 interface Props {
     show: boolean;
@@ -24,7 +25,7 @@ export function ModalHeader({ show, handleClose, current, setCurrent }: Props) {
 
     const itemsHeaderModal: Array<string> = ["MY ACCOUNT", "CHANGE THEME", "SORTING", "CREATE SHOP", "PROMOCODES", "SUPPORT"];
 
-    const { userData } = useUserData();
+    const { userData } = useUserData(currentId());
 
     let contentHeader = (
         <>
@@ -41,7 +42,7 @@ export function ModalHeader({ show, handleClose, current, setCurrent }: Props) {
                     <div className="row mt-3">
                         <div className="col-3">
                             <img
-                                src={userData.avatar}
+                                src={userData.avataruser}
                                 alt="123"
                                 height={120}
                                 width={120}
@@ -49,7 +50,7 @@ export function ModalHeader({ show, handleClose, current, setCurrent }: Props) {
                             />
                         </div>
                         <div className="col-8 px-5">
-                            <h4>{userData.login}</h4>
+                            <h4>{userData.loginuser}</h4>
                         </div>
                     </div>
                 </>
@@ -128,7 +129,6 @@ export function ModalHeader({ show, handleClose, current, setCurrent }: Props) {
         contentHeader = (
             <AuthHeader
                 handleClose={handleClose}
-                setCurrent={setCurrent}
             />
         )
 

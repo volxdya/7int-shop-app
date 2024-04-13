@@ -1,27 +1,26 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Footer } from './components/Footer/Footer';
 import { Header } from './components/Header/Header';
-import { Profile } from './components/Profile/Profile';
-import { Register } from './components/Register/Register';
+import { Suspense, lazy } from 'react';
 const App = () => {
+
+  const LazyProfile = lazy(() => import('./components/Profile/Profile'));
+
   return (
-    <BrowserRouter>
-      <div className="wrapper" />
-      <div className="content">
-        <Header />
-        <div className="container">
-          <button onClick={() => {
-            localStorage.clear();
-            location.reload();
-          }}>Log out</button>
-          <Routes>
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/register" element={<Register />} />
-          </Routes>
-          <Footer />
+    <Suspense fallback={<div>Loading</div>}>
+      <BrowserRouter>
+        <div className="wrapper" />
+        <div className="content">
+          <Header />
+          <div className="container">
+            <Routes>
+              <Route path="/profile" element={<LazyProfile />} />
+            </Routes>
+            <Footer />
+          </div>
         </div>
-      </div>
-    </BrowserRouter>
+      </BrowserRouter>
+    </Suspense>
   )
 }
 export default App

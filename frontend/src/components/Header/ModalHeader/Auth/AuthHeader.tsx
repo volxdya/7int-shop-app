@@ -2,10 +2,9 @@ import { Modal } from "react-bootstrap";
 import { Close } from "../../../../icons/Close";
 interface Props {
     handleClose: () => void;
-    setCurrent: (value: React.SetStateAction<string>) => void;
 }
 
-export function AuthHeader({ handleClose, setCurrent }: Props) {
+export function AuthHeader({ handleClose }: Props) {
     return (
         <>
             <div className="header-modal mt-4">

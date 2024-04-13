@@ -9,6 +9,7 @@ interface Props {
 }
 
 export function useAuth({ password, login, clear }: Props) {
+
     axios.post(`${api}/api/auth`, {
         passwordUser: password,
         loginUser: login,
