@@ -11,9 +11,13 @@ class ProductController {
             price
         } = req.body;
 
-        const newProduct = await db.query(`INSERT INTO product (title, shop_id, descriptionProduct, avatarProduct, count, price) values ($1, $2, $3, $4, $5, $6) RETURNING *`, [title, shop_id, descriptionProduct, avatarProduct, count, price]);
+        try {
+            const newProduct = await db.query(`INSERT INTO product (title, shop_id, descriptionProduct, avatarProduct, count, price) values ($1, $2, $3, $4, $5, $6) RETURNING *`, [title, shop_id, descriptionProduct, avatarProduct, count, price]);
 
-        res.send(newProduct.rows[0]);
+            res.send(newProduct.rows[0]);
+        } catch (err) {
+            res.sendStatus(400);
+        }
     }
 
     async getAllProducts(req, res) {
@@ -24,27 +28,39 @@ class ProductController {
     async getOneProduct(req, res) {
         const { id } = req.query;
 
-        const product = await db.query(`SELECT * FROM product where id = $1`, [id]);
+        try {
+            const product = await db.query(`SELECT * FROM product where id = $1`, [id]);
 
-        res.send(product.rows);
+            res.send(product.rows);
+        } catch (err) {
+            res.sendStatus(404);
+        }
     }
 
     async updateProduct(req, res) {
         const { title, descriptionProduct, avatarProduct, id, price, count } = req.body;
 
-        const product = await db.query(`UPDATE product set title = $1, descriptionProduct = $2, avatarProduct = $3, price = $4, count = $5 where id = $6 RETURNING *`, [title, descriptionProduct, avatarProduct, price, count, id]);
+        try {
+            const product = await db.query(`UPDATE product set title = $1, descriptionProduct = $2, avatarProduct = $3, price = $4, count = $5 where id = $6 RETURNING *`, [title, descriptionProduct, avatarProduct, price, count, id]);
 
-        res.send(product.rows[0]);
+            res.send(product.rows[0]);
+        } catch (err) {
+            res.sendStatus(400);
+        }
     }
 
     async deleteProduct(req, res) {
         const { id } = req.query;
 
-        await db.query('DELETE FROM reviewProduct WHERE product_id = $1', [id]);
+        try {
+            await db.query('DELETE FROM reviewProduct WHERE product_id = $1', [id]);
 
-        const result = await db.query('DELETE FROM product WHERE id = $1', [id]);
+            const result = await db.query('DELETE FROM product WHERE id = $1', [id]);
 
-        res.send(result);
+            res.send(result);
+        } catch (err) {
+            res.sendStatus(400);
+        }
     }
 }
 

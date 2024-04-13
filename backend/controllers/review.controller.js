@@ -4,10 +4,13 @@ class ReviewController {
     async createReview(req, res) {
         const { product_id, photo, title, author_id } = req.body;
 
-        const newReview = await db.query(`INSERT INTO reviewProduct (author_id, product_id, title, photo) values ($1, $2, $3, $4) RETURNING *`, [author_id, product_id, title, photo]);
+        try {
+            const newReview = await db.query(`INSERT INTO reviewProduct (author_id, product_id, title, photo) values ($1, $2, $3, $4) RETURNING *`, [author_id, product_id, title, photo]);
 
-        res.send(newReview.rows);
-
+            res.send(newReview.rows);
+        } catch (err) {
+            res.sendStatus(400);
+        }
     }
 
     async getReviews(req, res) {
