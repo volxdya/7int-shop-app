@@ -36,9 +36,7 @@ export function MyAccountHeader({ handleClose, setCurrent }: Props) {
                             width={120}
                             className="image"
                         />
-                        <div className="d-flex justify-content-center mt-4">
-                            <h4 className="upperCase">{userData.loginuser}</h4>
-                        </div>
+                        <h4 className="upperCase text-center mt-4">{userData.loginuser}</h4>
                     </div>
                 </div>
             </div>

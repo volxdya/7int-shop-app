@@ -1,10 +1,36 @@
 
+import { useState } from 'react';
 import { Delete } from '../../../icons/Delete';
 import { Edit } from '../../../icons/Edit';
 import './MyShop.css';
+import { ModalShop } from './ModalShop/ModalShop';
 
 
 export default function MyShop() {
+
+    const [show, setShow] = useState(false);
+    const [current, setCurrent] = useState("");
+
+    const handleClose = () => {
+        setShow(false);
+        setCurrent("");
+    };
+
+    const handleShowChange = () => {
+        setShow(true);
+        setCurrent("change");
+    };
+
+    const handleShowAdd = () => {
+        setShow(true);
+        setCurrent("add");
+    }
+
+    const handleShowEdit = () => {
+        setShow(true);
+        setCurrent("edit");
+    }
+
     return (
         <>
             <div className="d-flex justify-content-center mt-4">
@@ -19,7 +45,9 @@ export default function MyShop() {
                         />
                     </div>
                     <h2 className="text-center mt-4">YOUR SHOP - aokigahara</h2>
-                    <button className="upperCase button-change mt-2">Change data</button>
+                    <button className="upperCase button-change mt-2"
+                        onClick={handleShowChange}
+                    >Change data</button>
                 </div>
             </div>
 
@@ -27,7 +55,7 @@ export default function MyShop() {
                 <div className="d-flex flex-wrap gap-5">
 
                     <div className="card-product-shop d-flex justify-content-center align-items-center">
-                        <button className="add-button-shop">+</button>
+                        <button className="add-button-shop" onClick={handleShowAdd}>+</button>
                     </div>
 
 
@@ -37,10 +65,17 @@ export default function MyShop() {
                         <p className="card-title-shop">t-shirt aokigahara que</p>
                         <p className="card-price-shop">1500 ₽</p>
                         <div className="d-flex justify-content-center gap-3 align-items-center controls-shop-item">
-                            <button className="edit-button-shop"><Edit /></button>
+                            <button className="edit-button-shop" onClick={handleShowEdit}><Edit /></button>
                             <button className="edit-button-shop"><Delete /></button>
                         </div>
                     </div>
+
+                    <ModalShop
+                        current={current}
+                        setCurrent={setCurrent}
+                        handleClose={handleClose}
+                        show={show}
+                    />
                 </div>
             </div>
         </>

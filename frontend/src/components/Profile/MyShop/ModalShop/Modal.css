@@ -1,0 +1,11 @@
+.create-product-modal {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    font-size: 45px;
+    outline: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 300;
+}
