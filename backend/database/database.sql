@@ -1,7 +1,8 @@
 CREATE TABLE userS
 (
     id SERIAL PRIMARY KEY,
-    loginUser VARCHAR(255),
+    loginUser VARCHAR(255) NOT NULL UNIQUE,
+    descriptionUser VARCHAR(255),
     passwordUser VARCHAR(255),
     firstname VARCHAR(255),
     lastname VARCHAR(255),
@@ -24,7 +25,7 @@ CREATE TABLE shop
 (
     id SERIAL PRIMARY KEY,
     user_id INTEGER,
-    title VARCHAR(255),
+    title VARCHAR(255) NOT NULL UNIQUE,
     descriptionShop VARCHAR(255),
     avatarShop VARCHAR(255),
     FOREIGN KEY (user_id) REFERENCES userS (id)

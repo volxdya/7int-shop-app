@@ -3,7 +3,7 @@ export interface shop {
     user_id: number;
     title: string;
     descriptionShop: string | null;
-    avatarShop: string;
+    avatarshop: string;
 }
 
 export type shops = shop[];

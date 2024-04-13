@@ -9,7 +9,8 @@ export default function Profile() {
     const { userData } = useUserData(currentId());
     const [shops] = useGetUserShops();
     const idUser = currentId();
-    console.log(idUser);
+    console.log(shops);
+
 
     if (userData) {
         return (
@@ -27,7 +28,7 @@ export default function Profile() {
                     </div>
                     <div className="col-7 mx-5">
                         <h1 className="profile-username">{userData.loginuser}</h1>
-                        <p className="profile-description upperCase">description</p>
+                        <p className="profile-description upperCase">{userData.descriptionuser}</p>
                     </div>
                 </div>
 
@@ -37,7 +38,7 @@ export default function Profile() {
                         <div className="d-flex justify-content-center gap-5 flex-wrap mt-5">
                             {shops.map((item) => {
                                 return (
-                                    <CardShop title={item.title} avatarShop={item.avatarShop} />
+                                    <CardShop title={item.title} avatarshop={item.avatarshop} />
                                 )
                             })}
                         </div>

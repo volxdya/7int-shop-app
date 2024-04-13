@@ -7,13 +7,15 @@ interface Props {
     avatarUser: string;
     clear: () => void;
     id: number | undefined;
+    descriptionUser: string;
 }
 
-export function editUser({ loginUser, passwordUser, avatarUser, id, clear }: Props) {
+export function editUser({ loginUser, passwordUser, avatarUser, id, clear, descriptionUser }: Props) {
     axios.put(`${api}/api/update_user`, {
         loginUser: loginUser,
         passwordUser: passwordUser,
-        avatarUser,
+        avatarUser: avatarUser,
+        descriptionUser: descriptionUser,
         id: id
     }).then(() => {
         location.reload();

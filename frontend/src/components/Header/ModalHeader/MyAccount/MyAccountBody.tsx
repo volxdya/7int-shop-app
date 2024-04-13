@@ -1,14 +1,18 @@
-import { ChangeEvent, FormEvent, useState } from 'react';
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import { useUserData } from '../../../../store/useUserData';
 import './myAccount.css';
 import { editUser } from '../../../../api/user/editUser';
 import { currentId } from '../../../../api/user/currentId';
+import { Form } from './Form/Form';
 
 export function MyAccountBody() {
-    const [loginUser, setLogin] = useState("");
+    const { userData } = useUserData(currentId());
+    const [loginUser, setLogin] = useState(userData.loginuser);
+
     const [avatarUser, setAvatar] = useState("");
     const [passwordUser, setPassword] = useState("");
-    const [description, setDescription] = useState("");
+    const [descriptionUser, setDescription] = useState("");
+    const [isLoad, setIsLoad] = useState(true);
 
     function handleChangeAvatar(event: ChangeEvent<HTMLInputElement>) {
         setAvatar(event.target.value);
@@ -26,6 +30,12 @@ export function MyAccountBody() {
         setLogin(event.target.value);
     }
 
+    useEffect(() => {
+        setLogin(userData.loginuser);
+        setAvatar(userData.avataruser);
+        setDescription(userData.descriptionuser);
+    }, []);
+
     function clear() {
         setAvatar("");
         setDescription("");
@@ -33,52 +43,26 @@ export function MyAccountBody() {
         setAvatar("");
     }
 
-    const { userData } = useUserData(currentId());
-    const id = userData.id
+    const id = userData.id;
 
     function handleSubmit(event: FormEvent) {
         event.preventDefault();
         event.stopPropagation();
 
-        editUser({ id, passwordUser, avatarUser, loginUser, clear });
+        editUser({ id, passwordUser, avatarUser, loginUser, clear, descriptionUser });
     }
 
     return (
-        <div className="form-container">
-            <form className="form" onSubmit={handleSubmit}>
-                <div>
-                    <input
-                        type="text"
-                        className="input-modal"
-                        placeholder="Enter login"
-                        value={loginUser}
-                        onChange={handleChangeLogin}
-                    />
-                    <input
-                        type="text"
-                        className="input-modal mt-3"
-                        placeholder="Enter description"
-                        value={description}
-                        onChange={handleChangeDescription}
-                    />
-                    <input
-                        type="text"
-                        className="input-modal mt-3"
-                        placeholder="Enter avatar"
-                        value={avatarUser}
-                        onChange={handleChangeAvatar}
-                    />
-                    <input
-                        type="password"
-                        className="input-modal mt-3"
-                        placeholder="Enter password"
-                        value={passwordUser}
-                        onChange={handleChandePassword}
-                    />
-                    <button className="upperCase button-change mt-5">Change</button>
-                </div>
-            </form>
-
-        </div>
+        <Form
+            handleChandePassword={handleChandePassword}
+            handleChangeAvatar={handleChangeAvatar}
+            handleSubmit={handleSubmit}
+            handleChangeDescription={handleChangeDescription}
+            handleChangeLogin={handleChangeLogin}
+            loginUser={loginUser}
+            avatarUser={avatarUser}
+            passwordUser={passwordUser}
+            descriptionUser={descriptionUser}
+        />
     )
 }

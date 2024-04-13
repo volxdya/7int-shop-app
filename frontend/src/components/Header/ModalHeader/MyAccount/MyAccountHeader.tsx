@@ -2,13 +2,14 @@ import { Modal } from "react-bootstrap";
 import { Close } from "../../../../icons/Close";
 import { Back } from "../../../../icons/Back";
 import { useUserData } from "../../../../store/useUserData";
+import { currentId } from "../../../../api/user/currentId";
 interface Props {
     handleClose: () => void;
     setCurrent: (value: React.SetStateAction<string>) => void;
 }
 
 export function MyAccountHeader({ handleClose, setCurrent }: Props) {
-    const { userData } = useUserData();
+    const { userData } = useUserData(currentId());
 
     return (
         <>
@@ -29,14 +30,14 @@ export function MyAccountHeader({ handleClose, setCurrent }: Props) {
                 <div className="d-flex justify-content-center">
                     <div>
                         <img
-                            src={userData.avatar}
+                            src={userData.avataruser}
                             alt="123"
                             height={120}
                             width={120}
                             className="image"
                         />
                         <div className="d-flex justify-content-center mt-4">
-                            <h4 className="upperCase">{userData.login}</h4>
+                            <h4 className="upperCase">{userData.loginuser}</h4>
                         </div>
                     </div>
                 </div>
