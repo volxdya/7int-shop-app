@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Header.css';
 import { useState } from 'react';
 import { ModalHeader } from './ModalHeader/ModalHeader';
@@ -27,16 +27,9 @@ export function Header() {
 
     const { userData } = useUserData(currentId());
 
-    const navigate = useNavigate();
-
     return (
         <header>
             <a href="#" onClick={handleShow} className="header-link">Settings</a>
-            <button onClick={() => {
-                navigate("/");
-                localStorage.clear();
-                location.reload();
-            }}>Log out</button>
             <Link to="/">
                 <h2 className="main-title">7int</h2>
             </Link>

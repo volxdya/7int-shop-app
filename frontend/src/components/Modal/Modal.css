@@ -58,15 +58,34 @@
 .link-modal {
     padding-top: 5px;
 }
-.close:hover, .back:hover {
+
+.close:hover,
+.back:hover,
+.three-dots:hover {
     background: #484848;
-    padding: 0.2px;
-    border-radius: 10px;
+    transform: scale(1.11);
+    border-radius: 50px;
     cursor: pointer;
 }
+
 .link-modal-auth {
     color: white;
 }
+
 .link-modal-auth:hover {
     color: #d6d6d6;
+}
+.button-dropdown {
+    background: none;
+    color: white;
+    outline: none;
+    border: none;
+}
+.dropdown-menu {
+    background-color: #1F1F1F;
+    border: 1px solid #2c2c2c;
+    cursor: pointer;
+}
+.dropdown-item:active {
+    background: #3c3c3c;
 }

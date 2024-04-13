@@ -8,16 +8,13 @@ import './Profile.css';
 export default function Profile() {
     const { userData } = useUserData(currentId());
     const [shops] = useGetUserShops();
-    const idUser = currentId();
-    console.log(shops);
-
 
     if (userData) {
         return (
             <>
                 <h1 className="mt-3 upperCase">Profile</h1>
                 <div className="row mt-5">
-                    <div className="col-2">
+                    <div className="col-2"> 
                         <img
                             src={userData.avataruser}
                             alt={"User's avatar " + userData.loginuser}

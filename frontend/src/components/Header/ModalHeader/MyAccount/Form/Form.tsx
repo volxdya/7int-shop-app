@@ -56,9 +56,7 @@ export function Form({
                         onChange={handleChandePassword}
                     />
                     <button className="upperCase button-change mt-5">
-                        <div className="spinner-border" role="status">
-                            <span className="visually-hidden">Loading...</span>
-                        </div>
+                        Change
                     </button>
                 </div>
             </form>

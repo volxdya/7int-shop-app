@@ -13,6 +13,8 @@ import { AuthHeader } from "./Auth/AuthHeader";
 import { AuthBody } from "./Auth/AuthBody";
 import { useUserData } from "../../../store/useUserData";
 import { currentId } from "../../../api/user/currentId";
+import { ThreeDots } from "../../../icons/ThreeDots";
+import { Dropdown } from "./Dropdown/Dropdown";
 
 interface Props {
     show: boolean;
@@ -27,6 +29,7 @@ export function ModalHeader({ show, handleClose, current, setCurrent }: Props) {
 
     const { userData } = useUserData(currentId());
 
+
     let contentHeader = (
         <>
             {userData ? (
@@ -35,8 +38,16 @@ export function ModalHeader({ show, handleClose, current, setCurrent }: Props) {
                         <Modal.Title>
                             <span className="upperCase">Settings</span>
                         </Modal.Title>
-                        <div onClick={handleClose}>
-                            <Close />
+                        <div>
+                            <span className="me-4 dropstart">
+                                <button className="button-dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <ThreeDots />
+                                </button>
+                                <Dropdown setCurrent={setCurrent} />
+                            </span>
+                            <span onClick={handleClose}>
+                                <Close />
+                            </span>
                         </div>
                     </div>
                     <div className="row mt-3">
