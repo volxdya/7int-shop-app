@@ -1,14 +1,43 @@
+import { ChangeEvent, FormEvent, useState } from "react"
+import { useUserData } from "../../../../store/useUserData";
+import { useCreateShop } from "../../../../api/user/createShop";
+import { Form } from "./Form/Form";
+
+
 export function CreateShopBody() {
+    const { userData } = useUserData();
+    const user_id = userData.id;
+
+    const [titleShopValue, setTitleShopValue] = useState("");
+    const [avatarShopValue, setAvatarShopValue] = useState("");
+
+    function handleChangeTitle(event: ChangeEvent<HTMLInputElement>) {
+        setTitleShopValue(event.target.value);
+    }
+
+    function handleChangeAvatar(event: ChangeEvent<HTMLInputElement>) {
+        setAvatarShopValue(event.target.value);
+    }
+
+    function clear() {
+        setAvatarShopValue("");
+        setTitleShopValue("");
+    }
+
+    function handleSubmit(event: FormEvent) {
+        event.stopPropagation();
+        event.preventDefault();
+
+        useCreateShop({ titleShopValue, avatarShopValue, clear, user_id });
+    }
+
     return (
-        <div className="form-container">
-            <form className="form">
-                <div>
-                    <input type="text" className="input-modal" placeholder="Enter title shop" />
-                    <input type="text" className="input-modal mt-3" placeholder="Enter avatar shop" />
-                    <p className="helper text-center mt-5">By clicking Create, you agree to the User Agreement, Site Rules acknowledge that our Privacy Policy applies.</p>
-                    <button className="upperCase button-change mt-3">Create</button>
-                </div>
-            </form>
-        </div>
+        <Form
+            handleSubmit={handleSubmit}
+            titleShopValue={titleShopValue}
+            handleChangeTitle={handleChangeTitle}
+            avatarShopValue={avatarShopValue}
+            handleChangeAvatar={handleChangeAvatar}
+        />
     )
 }

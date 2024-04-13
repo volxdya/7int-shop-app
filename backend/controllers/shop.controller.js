@@ -2,9 +2,9 @@ const db = require(`../database/db`);
 
 class ShopController {
     async createShop(req, res) {
-        const { title, user_id, descriptionShop, avatarShop } = req.body;
+        const { title, user_id, avatarShop } = req.body;
 
-        const newShop = await db.query(`INSERT INTO shop (title, user_id, descriptionShop, avatarShop) values ($1, $2, $3, $4) RETURNING *`, [title, user_id, descriptionShop, avatarShop]);
+        const newShop = await db.query(`INSERT INTO shop (title, user_id, avatarShop) values ($1, $2, $3) RETURNING *`, [title, user_id, avatarShop]);
         res.send(newShop.rows[0]);
     }
 
@@ -41,6 +41,12 @@ class ShopController {
         res.send(result);
     }
 
+    async getUserShops(req, res) {
+        const { user_id } = req.query;
+        const shops = await db.query(`SELECT * FROM shop where user_id = $1`, [user_id]);
+
+        res.send(shops.rows);
+    }
 }
 
 module.exports = new ShopController();
