@@ -12,9 +12,9 @@ export function useRegister({ password, login, clear }: Props) {
     axios.post(`${api}/api/registration`, {
         passwordUser: password,
         loginUser: login,
-    }).then((resp) => {
+    }).then(() => {
         clear();
-    }).catch((err) => {
+    }).catch(() => {
         clear();
     });
 }
