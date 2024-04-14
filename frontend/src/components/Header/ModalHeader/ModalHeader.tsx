@@ -11,10 +11,9 @@ import { CreateShopBody } from "./CreateShop/CreateShopBody";
 import { CreateShopHeader } from "./CreateShop/CreateShopHeader";
 import { AuthHeader } from "./Auth/AuthHeader";
 import { AuthBody } from "./Auth/AuthBody";
-import { useUserData } from "../../../store/useUserData";
-import { currentId } from "../../../api/user/currentId";
 import { ThreeDots } from "../../../icons/ThreeDots";
 import { Dropdown } from "./Dropdown/Dropdown";
+import { useGetUserData } from "../../../store/useGetUserData";
 
 interface Props {
     show: boolean;
@@ -27,7 +26,7 @@ export function ModalHeader({ show, handleClose, current, setCurrent }: Props) {
 
     const itemsHeaderModal: Array<string> = ["MY ACCOUNT", "CHANGE THEME", "SORTING", "CREATE SHOP", "PROMOCODES", "SUPPORT"];
 
-    const { userData } = useUserData(currentId());
+    const userData = useGetUserData().data;
 
 
     let contentHeader = (

@@ -1,15 +1,14 @@
 import { Modal } from "react-bootstrap";
 import { Close } from "../../../../icons/Close";
 import { Back } from "../../../../icons/Back";
-import { useUserData } from "../../../../store/useUserData";
-import { currentId } from "../../../../api/user/currentId";
+import { useGetUserData } from "../../../../store/useGetUserData";
 interface Props {
     handleClose: () => void;
     setCurrent: (value: React.SetStateAction<string>) => void;
 }
 
 export function MyAccountHeader({ handleClose, setCurrent }: Props) {
-    const { userData } = useUserData(currentId());
+    const userData = useGetUserData().data;
 
     return (
         <>

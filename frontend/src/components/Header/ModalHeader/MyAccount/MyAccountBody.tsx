@@ -1,12 +1,12 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
-import { useUserData } from '../../../../store/useUserData';
 import './myAccount.css';
 import { editUser } from '../../../../api/user/editUser';
 import { currentId } from '../../../../api/user/currentId';
 import { Form } from './Form/Form';
+import { useGetUserData } from '../../../../store/useGetUserData';
 
 export function MyAccountBody() {
-    const { userData } = useUserData(currentId());
+    const userData = useGetUserData().data;
     const [loginUser, setLogin] = useState(userData.loginuser);
 
     const [avatarUser, setAvatar] = useState("");

@@ -1,6 +1,5 @@
 import axios from "axios";
 import { api } from "../../../env";
-import { useGetUserShops } from "../../store/useGetUserShops";
 
 interface Props {
     titleShopValue: string;
@@ -8,7 +7,6 @@ interface Props {
     avatarShopValue: string;
     clear: () => void;
 }
-
 
 export function useCreateShop({ titleShopValue, avatarShopValue, user_id, clear }: Props) {
     axios.post(`${api}/api/create_shop`, {

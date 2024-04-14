@@ -1,6 +1,5 @@
 import { Modal } from "react-bootstrap";
 import { Close } from "../../../../../icons/Close";
-import { CardShop } from "../../../../../ui/CardShop/CardShop";
 
 interface Props {
     handleClose: () => void;

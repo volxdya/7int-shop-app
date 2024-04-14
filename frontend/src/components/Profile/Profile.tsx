@@ -1,12 +1,12 @@
 
 import { currentId } from '../../api/user/currentId';
-import { useUserData } from '../../store/useUserData';
+import { useGetUserData } from '../../store/useGetUserData';
 import { CardProduct } from '../../ui/CardProduct/CardProduct';
 import './Profile.css';
 import { Shops } from './Shops/Shops';
 
 export default function Profile() {
-    const { userData } = useUserData(currentId());
+    const userData = useGetUserData().data;
 
     if (userData) {
         return (

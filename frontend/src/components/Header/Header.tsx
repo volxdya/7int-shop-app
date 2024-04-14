@@ -3,8 +3,7 @@ import './Header.css';
 import { useState } from 'react';
 import { ModalHeader } from './ModalHeader/ModalHeader';
 import { getItem } from '../../utils/localStorage';
-import { useUserData } from '../../store/useUserData';
-import { currentId } from '../../api/user/currentId';
+import { useGetUserData } from '../../store/useGetUserData';
 
 export function Header() {
 
@@ -25,7 +24,8 @@ export function Header() {
         handleShow();
     }
 
-    const { userData } = useUserData(currentId());
+    const userData = useGetUserData().data;
+
     return (
 
         <header>
