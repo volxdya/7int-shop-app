@@ -7,12 +7,11 @@ class ProductController {
             title,
             descriptionProduct,
             avatarProduct,
-            count,
             price
         } = req.body;
 
         try {
-            const newProduct = await db.query(`INSERT INTO product (title, shop_id, descriptionProduct, avatarProduct, count, price) values ($1, $2, $3, $4, $5, $6) RETURNING *`, [title, shop_id, descriptionProduct, avatarProduct, count, price]);
+            const newProduct = await db.query(`INSERT INTO product (title, shop_id, descriptionProduct, avatarProduct, price) values ($1, $2, $3, $4, $5) RETURNING *`, [title, shop_id, descriptionProduct, avatarProduct, price]);
 
             res.send(newProduct.rows[0]);
         } catch (err) {

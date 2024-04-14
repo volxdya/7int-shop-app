@@ -1,5 +1,4 @@
 
-import { currentId } from '../../api/user/currentId';
 import { useGetUserData } from '../../store/useGetUserData';
 import { CardProduct } from '../../ui/CardProduct/CardProduct';
 import './Profile.css';

@@ -1,7 +1,33 @@
+import {useParams} from "react-router-dom";
+import {FormEvent} from "react";
+import {api} from "../../../../../../env.tsx";
+import axios from "axios";
+
 export function ModalCreateBody() {
+
+    let { id } = useParams();
+
+    console.log(id)
+
+    function handleSubmit(event: FormEvent) {
+        event.preventDefault()
+
+        axios.post(`${api}/api/create_shop`, {
+            shop_id: id,
+            title: "test",
+            descriptionProduct: "test",
+            price: 5000,
+            avatarProduct: "test"
+        }).then(response => {
+            console.log(response.data);
+        }).catch(error => {
+            console.log(error);
+        });
+    }
+
     return (
         <div className="form-container">
-            <form className="form">
+            <form className="form" onSubmit={handleSubmit}>
                 <div>
                     <input
                         type="text"
@@ -24,7 +50,7 @@ export function ModalCreateBody() {
                         placeholder="Enter price"
                     />
                     <button className="upperCase button-change mt-5">
-                        Change
+                        Create
                     </button>
                 </div>
             </form>

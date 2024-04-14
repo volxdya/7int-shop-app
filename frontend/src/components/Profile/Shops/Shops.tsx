@@ -3,12 +3,13 @@ import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import { CardShop } from "../../../ui/CardShop/CardShop";
 import { shop } from "../../../interfaces/shop";
+import {api} from "../../../../env.tsx";
 
 export function Shops() {
 
     const { isLoading, error, data } = useQuery(
         'repoData',
-        () => fetch(`http://localhost:3000/api/get_user_shops?user_id=${currentId()}`).then((response) => response.json()), {
+        () => fetch(`${api}/api/get_user_shops?user_id=${currentId()}`).then((response) => response.json()), {
         refetchOnWindowFocus: true,
         keepPreviousData: true,
         refetchInterval: 3000
@@ -26,7 +27,7 @@ export function Shops() {
                     {data.map((item: shop) => {
                         return (
                             <>
-                                <Link to={"/my-shop/" + item.id} className="my-shop-link">
+                                <Link to={"/my-shop/" + item.id} key={item.id} className="my-shop-link">
                                     <CardShop
                                         title={item.title}
                                         avatarshop={item.avatarshop}

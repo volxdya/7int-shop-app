@@ -14,6 +14,7 @@ import { AuthBody } from "./Auth/AuthBody";
 import { ThreeDots } from "../../../icons/ThreeDots";
 import { Dropdown } from "./Dropdown/Dropdown";
 import { useGetUserData } from "../../../store/useGetUserData";
+import {getItem} from "../../../utils/localStorage.ts";
 
 interface Props {
     show: boolean;
@@ -27,7 +28,7 @@ export function ModalHeader({ show, handleClose, current, setCurrent }: Props) {
     const itemsHeaderModal: Array<string> = ["MY ACCOUNT", "CHANGE THEME", "SORTING", "CREATE SHOP", "PROMOCODES", "SUPPORT"];
 
     const userData = useGetUserData().data;
-
+    const token = getItem("token");
 
     let contentHeader = (
         <>
@@ -72,7 +73,9 @@ export function ModalHeader({ show, handleClose, current, setCurrent }: Props) {
 
     let contentBody = (
         <>
-            {userData ? (
+            {!token || token === "" || token === null || token === undefined ? (
+                setCurrent("TOKEN")
+            ) : (
                 <>
                     {itemsHeaderModal.map((item, index) => {
                         return (
@@ -82,8 +85,6 @@ export function ModalHeader({ show, handleClose, current, setCurrent }: Props) {
                         )
                     })}
                 </>
-            ) : (
-                setCurrent("TOKEN")
             )}
         </>
     );
