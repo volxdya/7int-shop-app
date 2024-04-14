@@ -26,8 +26,8 @@ export function Header() {
     }
 
     const { userData } = useUserData(currentId());
-
     return (
+
         <header>
             <a href="#" onClick={handleShow} className="header-link">Settings</a>
             <Link to="/">

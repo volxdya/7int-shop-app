@@ -2,6 +2,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Footer } from './components/Footer/Footer';
 import { Header } from './components/Header/Header';
 import { Suspense, lazy } from 'react';
+import { useUserData } from './store/useUserData';
+import { currentId } from './api/user/currentId';
 const App = () => {
 
   const LazyProfile = lazy(() => import('./components/Profile/Profile'));

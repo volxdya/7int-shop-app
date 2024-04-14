@@ -1,5 +1,6 @@
 import axios from "axios";
 import { api } from "../../../env";
+import { useGetUserShops } from "../../store/useGetUserShops";
 
 interface Props {
     titleShopValue: string;

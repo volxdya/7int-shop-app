@@ -1,14 +1,12 @@
-import { Link } from 'react-router-dom';
+
 import { currentId } from '../../api/user/currentId';
-import { useGetUserShops } from '../../store/useGetUserShops';
 import { useUserData } from '../../store/useUserData';
 import { CardProduct } from '../../ui/CardProduct/CardProduct';
-import { CardShop } from '../../ui/CardShop/CardShop';
 import './Profile.css';
+import { Shops } from './Shops/Shops';
 
 export default function Profile() {
     const { userData } = useUserData(currentId());
-    const [shops] = useGetUserShops();
 
     if (userData) {
         return (
@@ -30,29 +28,7 @@ export default function Profile() {
                     </div>
                 </div>
 
-                {shops && (
-                    <div className="mt-5">
-                        <h1 className="upperCase">your stores</h1>
-                        <div className='d-flex gap-5 flex-wrap mt-5'>
-                            <div className="d-flex flex-wrap gap-5">
-                                {shops.map((item) => {
-                                    return (
-                                        <>
-                                            <Link to={"/my-shop/" + item.id} className="my-shop-link">
-                                                <CardShop
-                                                    title={item.title}
-                                                    avatarshop={item.avatarshop}
-                                                    key={item.id}
-                                                />
-                                            </Link>
-                                        </>
-                                    )
-                                })}
-                            </div>
-                        </div>
-                    </div >
-                )
-                }
+                <Shops />
 
                 <div className="mt-5">
                     <h1 className="upperCase">Buy products</h1>
