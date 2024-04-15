@@ -25,7 +25,7 @@ class ProductController {
     }
 
     async getOneProduct(req, res) {
-        const { id } = req.query;
+        const {id} = req.query;
 
         try {
             const product = await db.query(`SELECT * FROM product where id = $1`, [id]);
@@ -37,7 +37,7 @@ class ProductController {
     }
 
     async updateProduct(req, res) {
-        const { title, descriptionProduct, avatarProduct, id, price, count } = req.body;
+        const {title, descriptionProduct, avatarProduct, id, price, count} = req.body;
 
         try {
             const product = await db.query(`UPDATE product set title = $1, descriptionProduct = $2, avatarProduct = $3, price = $4, count = $5 where id = $6 RETURNING *`, [title, descriptionProduct, avatarProduct, price, count, id]);
@@ -49,7 +49,7 @@ class ProductController {
     }
 
     async deleteProduct(req, res) {
-        const { id } = req.query;
+        const {id} = req.query;
 
         try {
             await db.query('DELETE FROM reviewProduct WHERE product_id = $1', [id]);
@@ -60,6 +60,14 @@ class ProductController {
         } catch (err) {
             res.sendStatus(400);
         }
+    }
+
+    async getProductShop(req, res) {
+        const {shop_id} = req.query;
+
+        const products = await db.query(`SELECT * FROM product where shop_id = $1`, [shop_id]);
+
+        res.send(products.rows);
     }
 }
 
