@@ -6,6 +6,7 @@ const App = () => {
 
   const LazyProfile = lazy(() => import('./components/Profile/Profile'));
   const LazyMyShop = lazy(() => import('./components/Profile/MyShop/MyShop'));
+  const LazyMainPage = lazy(() => import('./components/MainPage/MainPage.tsx'));
 
   return (
     <Suspense fallback={<div>Loading</div>}>
@@ -17,6 +18,7 @@ const App = () => {
             <Routes>
               <Route path="/profile" element={<LazyProfile />} />
               <Route path="/my-shop/:id" element={<LazyMyShop />} />
+              <Route path="/" element={<LazyMainPage />} />
             </Routes>
             <Footer />
           </div>
@@ -26,21 +28,3 @@ const App = () => {
   )
 }
 export default App
-
-/* 
-  <div className="container">
-          <h1 className="mt-4">POPULAR PRODUCTS</h1>
-          <div className="d-flex justify-content-center gap-5 flex-wrap mt-5">
-            <CardProduct />
-            <CardProduct />
-            <CardProduct />
-            <CardProduct />
-          </div>
-          <div className="d-flex justify-content-center gap-5 flex-wrap mt-5">
-            <CardShop />
-            <CardShop />
-            <CardShop />
-            <CardShop />
-          </div>
-        </div>
-*/

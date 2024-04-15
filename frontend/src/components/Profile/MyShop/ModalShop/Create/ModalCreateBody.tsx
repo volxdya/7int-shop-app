@@ -5,7 +5,7 @@ import axios from "axios";
 
 export function ModalCreateBody() {
 
-    let { id } = useParams();
+    const { id } = useParams();
 
     console.log(id)
 

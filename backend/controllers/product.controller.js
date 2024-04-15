@@ -21,7 +21,7 @@ class ProductController {
 
     async getAllProducts(req, res) {
         const products = await db.query(`SELECT * FROM product`);
-        res.send(products);
+        res.send(products.rows);
     }
 
     async getOneProduct(req, res) {
