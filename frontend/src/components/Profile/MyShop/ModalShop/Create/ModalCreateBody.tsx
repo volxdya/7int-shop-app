@@ -12,7 +12,7 @@ export function ModalCreateBody() {
     function handleSubmit(event: FormEvent) {
         event.preventDefault()
 
-        axios.post(`${api}/api/create_shop`, {
+        axios.post(`${api}/api/create_product`, {
             shop_id: id,
             title: "test",
             descriptionProduct: "test",

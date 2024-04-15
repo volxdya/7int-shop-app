@@ -11,16 +11,20 @@ class UserController {
         try {
             const newUser = await db.query(`INSERT INTO userS (loginUser, passwordUser, avatarUser, descriptionUser) values ($1, $2, $3, $4) RETURNING *`, [loginUser, passwordUser, startAvatar, ""]);
             res.send(newUser.rows[0]);
-        } catch(err) {
+        } catch (err) {
             res.sendStatus(400);
         }
     }
 
     async getUser(req, res) {
         const id = req.query.id;
-        const user = await db.query(`SELECT * FROM userS where id = $1`, [id]);
+        try {
+            const user = await db.query(`SELECT * FROM userS where id = $1`, [id]);
 
-        res.send(user.rows[0]);
+            res.send(user.rows[0]);
+        } catch (err) {
+            res.sendStatus(404);
+        }
     }
 
     async getAllUsers(req, res) {
