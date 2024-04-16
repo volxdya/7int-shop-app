@@ -9,6 +9,7 @@ body {
     overflow-x: hidden;
     font-family: "Roboto", sans-serif;
     zoom: 100%;
+    scroll-behavior: smooth;
     color: white;
 }
 
