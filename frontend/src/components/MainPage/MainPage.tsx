@@ -33,7 +33,7 @@ export default function MainPage() {
             <h1 className="mt-4 upperCase">Popular Products</h1>
             <div className='d-flex gap-5 flex-wrap mt-5'>
                 <div className="d-flex flex-wrap gap-5">
-                    {dataProducts.map((item: product) => {
+                    {dataProducts?.map((item: product) => {
                         return (
                             <>
                                 <CardProduct
@@ -52,7 +52,7 @@ export default function MainPage() {
 
             <div className='d-flex gap-5 flex-wrap mt-5'>
                 <div className="d-flex flex-wrap gap-5">
-                    {dataShops.map((item: shop) => {
+                    {dataShops?.map((item: shop) => {
                         return (
                             <>
                                 <CardShop

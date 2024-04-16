@@ -1,7 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from "react"
 import { useCreateShop } from "../../../../api/user/createShop";
 import { Form } from "./Form/Form";
-import { currentId } from "../../../../api/user/currentId";
 import { useGetUserData } from "../../../../store/useGetUserData";
 
 
@@ -11,6 +10,7 @@ export function CreateShopBody() {
 
     const [titleShopValue, setTitleShopValue] = useState("");
     const [avatarShopValue, setAvatarShopValue] = useState("");
+    const [isSuccess, setIsSuccess] = useState(false);
 
     function handleChangeTitle(event: ChangeEvent<HTMLInputElement>) {
         setTitleShopValue(event.target.value);
@@ -20,16 +20,17 @@ export function CreateShopBody() {
         setAvatarShopValue(event.target.value);
     }
 
-    function clear() {
+    function request() {
         setAvatarShopValue("");
         setTitleShopValue("");
+        setIsSuccess(true);
     }
 
     function handleSubmit(event: FormEvent) {
         event.stopPropagation();
         event.preventDefault();
 
-        useCreateShop({ titleShopValue, avatarShopValue, clear, user_id });
+        useCreateShop({ titleShopValue, avatarShopValue, request, user_id });
     }
 
     return (
@@ -39,6 +40,7 @@ export function CreateShopBody() {
             handleChangeTitle={handleChangeTitle}
             avatarShopValue={avatarShopValue}
             handleChangeAvatar={handleChangeAvatar}
+            isSuccess={isSuccess}
         />
     )
 }

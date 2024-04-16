@@ -1,7 +1,6 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import './myAccount.css';
 import { editUser } from '../../../../api/user/editUser';
-import { currentId } from '../../../../api/user/currentId';
 import { Form } from './Form/Form';
 import { useGetUserData } from '../../../../store/useGetUserData';
 

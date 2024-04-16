@@ -9,6 +9,7 @@ import {Delete} from "../../../icons/Delete.tsx";
 import {Edit} from "../../../icons/Edit.tsx";
 import {shop} from "../../../interfaces/shop.ts";
 import {product, products} from "../../../interfaces/product.ts";
+import axios from "axios";
 
 export default function MyShop() {
 
@@ -50,14 +51,21 @@ export default function MyShop() {
     const dataProduct = useQuery(
         'dataProduct',
         () => fetch(`${api}/api/get_products_shop?shop_id=${id}`).then((response) => response.json()), {
-            refetchInterval: 5000,
+            refetchInterval: 1000,
             keepPreviousData: true,
             refetchOnWindowFocus: true
         });
 
     const productData: products = dataProduct.data;
 
-    console.log(shopData);
+    async function deleteProduct(id: number) {
+        await axios.get(`${api}/api/delete_product?id=${id}`).then((response) => {
+            console.log(response);
+        }).catch((err) => {
+            console.log(err);
+        });
+    }
+
     return (
         <>
             {shopData && (
@@ -100,7 +108,11 @@ export default function MyShop() {
                                 <div
                                     className="d-flex justify-content-center gap-3 align-items-center controls-shop-item">
                                     <button className="edit-button-shop" onClick={handleShowEdit}><Edit/></button>
-                                    <button className="edit-button-shop"><Delete/></button>
+                                    <button className="edit-button-shop"
+                                            onClick={() => {
+                                                deleteProduct(item.id)
+                                            }}
+                                    ><Delete/></button>
                                 </div>
                             </div>
                         );

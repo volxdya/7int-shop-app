@@ -26,9 +26,15 @@
 }
 
 .modal-content {
-    height: 850px;
     background-color: #1F1F1F;
+    overflow: hidden;
+    height: 900px;
+    top: 0;
     border-radius: 25px;
+}
+.modal {
+    height: 940px;
+    overflow: hidden;
 }
 
 .modal-header-content {

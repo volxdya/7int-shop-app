@@ -8,7 +8,7 @@ interface Props {
 export function ModalCreateHeader({ handleClose }: Props) {
     return (
         <>
-            <div className="header-modal mt-4">
+            <div className="header-modal">
                 <Modal.Title>
                     <span className="upperCase">Create product</span>
                 </Modal.Title>
