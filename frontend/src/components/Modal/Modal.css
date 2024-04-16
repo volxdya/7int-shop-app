@@ -95,3 +95,6 @@
 .dropdown-item:active {
     background: #3c3c3c;
 }
+.delete-account {
+    color: red;
+}

@@ -11,7 +11,7 @@ export function CardProduct({title, shop, price, avatarproduct}: Props) {
     return (
         <div className="card-product">
             <img src={avatarproduct} />
-            <p className="card-shop">{shop}</p>
+            <p className="card-shop-title">{shop}</p>
             <p className="card-title">{title}</p>
             <p className="card-price">{price} ₽</p>
         </div>

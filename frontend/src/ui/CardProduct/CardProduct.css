@@ -23,10 +23,11 @@
     color: rgb(72, 72, 72);
     font-size: 19px;
 }
-.card-shop {
+.card-shop-title     {
     font-weight: 400;
     font-size: 20px;
     color: black;
+    display: inline;
 }
 .card-product:hover {
     transform: scale(1.01);
