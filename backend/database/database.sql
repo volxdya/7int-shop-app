@@ -15,6 +15,7 @@ CREATE TABLE product
     shop_id INTEGER,
     price INTEGER,
     count INTEGER,
+    categoryProduct VARCHAR(255),
     descriptionProduct VARCHAR(255),
     avatarProduct VARCHAR(255),
     title VARCHAR(255),

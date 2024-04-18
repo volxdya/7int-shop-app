@@ -11,6 +11,8 @@ export function ModalCreateBody() {
     const [price, setPrice] = useState("0");
     const [description, setDescription] = useState("");
     const [avatar, setAvatar] = useState("");
+    const [count, setCount] = useState("0");
+    const [category, setCategory] = useState("");
     const [isSuccess, setIsSuccess] = useState(false);
 
     function handleTitle(event: ChangeEvent<HTMLInputElement>) {
@@ -29,12 +31,25 @@ export function ModalCreateBody() {
         setPrice(event.target.value);
     }
 
+    function handleCategory(event: ChangeEvent<HTMLInputElement>) {
+        setCategory(event.target.value);
+    }
+
+    function handleCount(event: ChangeEvent<HTMLInputElement>) {
+        setCount(event.target.value);
+    }
+
     function request(){
         setTitle("");
         setDescription("");
         setPrice("");
         setAvatar("");
         setIsSuccess(true);
+        setCount("");
+        setCategory("");
+        setInterval(() => {
+            setIsSuccess(false);
+        }, 5000);
     }
 
     function handleSubmit(event: FormEvent) {
@@ -44,7 +59,9 @@ export function ModalCreateBody() {
             title: title,
             descriptionProduct: description,
             price: price,
-            avatarProduct: avatar
+            avatarProduct: avatar,
+            categoryProduct: category,
+            count: count
         }).then(response => {
             request();
             console.log(response.data);
@@ -61,7 +78,7 @@ export function ModalCreateBody() {
                         type="text"
                         className="input-modal"
                         placeholder="enter title"
-                        title={title}
+                        value={title}
                         onChange={handleTitle}
                     />
                     <input
@@ -84,6 +101,20 @@ export function ModalCreateBody() {
                         placeholder="Enter price"
                         value={price}
                         onChange={handlePrice}
+                    />
+                    <input
+                        type="number"
+                        className="input-modal mt-3"
+                        placeholder="Enter category"
+                        value={category}
+                        onChange={handleCategory}
+                    />
+                    <input
+                        type="text"
+                        className="input-modal mt-3"
+                        placeholder="Enter count"
+                        value={count}
+                        onChange={handleCount}
                     />
                     {isSuccess && (
                         <div className="mt-4">

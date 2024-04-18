@@ -5,6 +5,8 @@ export interface product {
     descriptionproduct: string | null;
     avatarproduct: string;
     price: number;
+    categoryproduct: string;
+    count: number;
 }
 
 export type products = product[];

@@ -7,12 +7,13 @@ class ProductController {
             title,
             descriptionProduct,
             avatarProduct,
-            price
+            price,
+            count,
+            categoryProduct
         } = req.body;
 
         try {
-            const newProduct = await db.query(`INSERT INTO product (title, shop_id, descriptionProduct, avatarProduct, price) values ($1, $2, $3, $4, $5) RETURNING *`, [title, shop_id, descriptionProduct, avatarProduct, price]);
-
+            const newProduct = await db.query(`INSERT INTO product (title, shop_id, descriptionProduct, avatarProduct, price, categoryProduct, count) values ($1, $2, $3, $4, $5, $6, $7) RETURNING *`, [title, shop_id, descriptionProduct, avatarProduct, price, categoryProduct, count]);
             res.send(newProduct.rows[0]);
         } catch (err) {
             res.sendStatus(400);
@@ -30,7 +31,7 @@ class ProductController {
         try {
             const product = await db.query(`SELECT * FROM product where id = $1`, [id]);
 
-            res.send(product.rows);
+            res.send(product.rows[0]);
         } catch (err) {
             res.sendStatus(404);
         }

@@ -7,6 +7,7 @@ const App = () => {
   const LazyProfile = lazy(() => import('./components/Profile/Profile'));
   const LazyMyShop = lazy(() => import('./components/Profile/MyShop/MyShop'));
   const LazyMainPage = lazy(() => import('./components/MainPage/MainPage.tsx'));
+  const LazyProductPage = lazy(() => import('./components/ProductPage/ProductPage.tsx'));
 
   return (
     <Suspense fallback={<div>Loading</div>}>
@@ -18,6 +19,7 @@ const App = () => {
             <Routes>
               <Route path="/profile" element={<LazyProfile />} />
               <Route path="/my-shop/:id" element={<LazyMyShop />} />
+              <Route path="/product/:id" element={<LazyProductPage />} />
               <Route path="/" element={<LazyMainPage />} />
             </Routes>
             <Footer />

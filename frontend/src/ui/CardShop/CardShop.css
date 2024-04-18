@@ -4,6 +4,10 @@
     cursor: pointer;
     justify-content: center;
 }
+.card-shop:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s;
+}
 .shop-title {
     color: white;
 }

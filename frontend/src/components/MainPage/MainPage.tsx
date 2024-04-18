@@ -4,6 +4,7 @@ import {api} from "../../../env.tsx";
 import {shop, shops} from "../../interfaces/shop.ts";
 import {product, products} from "../../interfaces/product.ts";
 import {CardShop} from "../../ui/CardShop/CardShop.tsx";
+import {Link} from "react-router-dom";
 
 export default function MainPage() {
 
@@ -36,13 +37,15 @@ export default function MainPage() {
                     {dataProducts?.map((item: product) => {
                         return (
                             <>
-                                <CardProduct
-                                    key={item.id}
-                                    avatarproduct={item.avatarproduct}
-                                    price={item.price}
-                                    title={item.title}
-                                    shop="test"
-                                />
+                                <Link to={"/product/" + item.id} key={item.id}>
+                                    <CardProduct
+                                        key={item.id}
+                                        avatarproduct={item.avatarproduct}
+                                        price={item.price}
+                                        title={item.title}
+                                        shop="test"
+                                    />
+                                </Link>
                             </>
                         )
                     })}
