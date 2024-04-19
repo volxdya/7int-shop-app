@@ -8,10 +8,10 @@ export function ModalCreateBody() {
     const { id } = useParams();
 
     const [title, setTitle] = useState("");
-    const [price, setPrice] = useState("0");
+    const [price, setPrice] = useState("");
     const [description, setDescription] = useState("");
     const [avatar, setAvatar] = useState("");
-    const [count, setCount] = useState("0");
+    const [count, setCount] = useState("");
     const [category, setCategory] = useState("");
     const [isSuccess, setIsSuccess] = useState(false);
 
@@ -103,14 +103,14 @@ export function ModalCreateBody() {
                         onChange={handlePrice}
                     />
                     <input
-                        type="number"
+                        type="text"
                         className="input-modal mt-3"
                         placeholder="Enter category"
                         value={category}
                         onChange={handleCategory}
                     />
                     <input
-                        type="text"
+                        type="number"
                         className="input-modal mt-3"
                         placeholder="Enter count"
                         value={count}

@@ -1,6 +1,5 @@
 
 import { useGetUserData } from '../../store/useGetUserData';
-import { CardProduct } from '../../ui/CardProduct/CardProduct';
 import './Profile.css';
 import { Shops } from './Shops/Shops';
 
@@ -31,7 +30,7 @@ export default function Profile() {
 
                 <div className="mt-5">
                     <h1 className="upperCase">Buy products</h1>
-                    <CardProduct />
+                    {/*<CardProduct />*/}
                 </div>
 
             </>

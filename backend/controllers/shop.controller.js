@@ -49,7 +49,6 @@ class ShopController {
         try {
             const product = await db.query('SELECT * FROM product where shop_id = $1', [id]);
 
-            await db.query('DELETE FROM reviewProduct WHERE product_id = $1', [product.rows[0].id]);
             await db.query('DELETE FROM product WHERE shop_id = $1', [id]);
 
             const result = await db.query('DELETE FROM shop WHERE id = $1', [id]);

@@ -32,7 +32,7 @@ export function ModalHeader({ show, handleClose, current, setCurrent }: Props) {
 
     let contentHeader = (
         <>
-            {userData ? (
+            {token ? (
                 <>
                     <div className="header-modal mt-4">
                         <Modal.Title>
@@ -50,20 +50,22 @@ export function ModalHeader({ show, handleClose, current, setCurrent }: Props) {
                             </span>
                         </div>
                     </div>
-                    <div className="row mt-3">
-                        <div className="col-3">
-                            <img
-                                src={userData.avataruser}
-                                alt="123"
-                                height={120}
-                                width={120}
-                                className="image"
-                            />
+                    {userData && (
+                        <div className="row mt-3">
+                            <div className="col-3">
+                                <img
+                                    src={userData.avataruser}
+                                    alt="123"
+                                    height={120}
+                                    width={120}
+                                    className="image"
+                                />
+                            </div>
+                            <div className="col-8 px-5">
+                                <h4>{userData.loginuser}</h4>
+                            </div>
                         </div>
-                        <div className="col-8 px-5">
-                            <h4>{userData.loginuser}</h4>
-                        </div>
-                    </div>
+                    )}
                 </>
             ) : (
                 setCurrent("TOKEN")

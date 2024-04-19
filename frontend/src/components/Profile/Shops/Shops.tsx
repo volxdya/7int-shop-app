@@ -17,27 +17,30 @@ export function Shops() {
     );
     if (isLoading) return <p>Загрузка...</p>;
     if (error) return <p>Ошибка:</p>;
-
     return (
-        <div className="mt-5">
-            <h1 className="upperCase">your stores</h1>
-            <div className='d-flex gap-5 flex-wrap mt-5'>
-                <div className="d-flex flex-wrap gap-5">
-                    {data.map((item: shop) => {
-                        return (
-                            <>
-                                <Link to={"/my-shop/" + item.id} key={item.id} className="my-shop-link">
-                                    <CardShop
-                                        title={item.title}
-                                        avatarshop={item.avatarshop}
-                                        key={item.id}
-                                    />
-                                </Link>
-                            </>
-                        )
-                    })}
+        <>
+            {data.length > 0 && (
+                <div className="mt-5">
+                    <h1 className="upperCase">your stores</h1>
+                    <div className='d-flex gap-5 flex-wrap mt-5'>
+                        <div className="d-flex flex-wrap gap-5">
+                            {data.map((item: shop) => {
+                                return (
+                                    <>
+                                        <Link to={"/my-shop/" + item.id} key={item.id} className="my-shop-link">
+                                            <CardShop
+                                                title={item.title}
+                                                avatarshop={item.avatarshop}
+                                                key={item.id}
+                                            />
+                                        </Link>
+                                    </>
+                                )
+                            })}
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div >
+            )}
+        </>
     );
 }

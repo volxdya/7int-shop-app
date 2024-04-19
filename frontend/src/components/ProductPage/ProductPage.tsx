@@ -45,6 +45,7 @@ export default function ProductPage() {
                             <p className="shop-product-page">{shopData.title}</p>
                             <p className="category-product-page upperCase">Category: {productData.categoryproduct}</p>
                             <p className="description-product-page upperCase">{productData.descriptionproduct}</p>
+                            <p className="upperCase">В наличии: {productData.count}</p>
                             <p className="price-product-page">{productData.price}₽</p>
                             <button className="button-change button-buy upperCase">Buy</button>
                         </div>
