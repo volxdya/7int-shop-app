@@ -2,7 +2,7 @@
     width: 288px;
     height: 300px;
     object-fit: cover;
-    border-radius: 15px;
+    border-radius: 15px 15px 0 0;
 }
 
 .card-product-shop {
@@ -51,4 +51,13 @@
     font-weight: 300;
     border: 1px solid black;
     height: 100px;
+}
+
+.edit-button-shop:hover{
+    transform: scale(1.02);
+}
+.add-button-shop:hover {
+    transform: scale(1.02);
+    border: 1px solid #727272;
+    color: #727272;
 }
