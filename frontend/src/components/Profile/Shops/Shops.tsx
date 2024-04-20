@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { CardShop } from "../../../ui/CardShop/CardShop";
 import { shop } from "../../../interfaces/shop";
 import {api} from "../../../../env.tsx";
+import uniqid from 'uniqid';
 
 export function Shops() {
 
@@ -27,11 +28,11 @@ export function Shops() {
                             {data.map((item: shop) => {
                                 return (
                                     <>
-                                        <Link to={"/my-shop/" + item.id} key={item.id} className="my-shop-link">
+                                        <Link to={"/my-shop/" + item.id} key={uniqid()} className="my-shop-link">
                                             <CardShop
                                                 title={item.title}
                                                 avatarshop={item.avatarshop}
-                                                key={item.id}
+                                                key={uniqid()}
                                             />
                                         </Link>
                                     </>

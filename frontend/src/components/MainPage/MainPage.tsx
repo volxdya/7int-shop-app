@@ -5,6 +5,7 @@ import {shop, shops} from "../../interfaces/shop.ts";
 import {product, products} from "../../interfaces/product.ts";
 import {CardShop} from "../../ui/CardShop/CardShop.tsx";
 import {Link} from "react-router-dom";
+import uniqid from 'uniqid';
 
 export default function MainPage() {
 
@@ -39,17 +40,15 @@ export default function MainPage() {
                 <div className="d-flex flex-wrap gap-5">
                     {dataProducts?.map((item: product) => {
                         return (
-                            <>
-                                <Link to={"/product/" + item.id} key={item.id}>
-                                    <CardProduct
-                                        key={item.id}
-                                        avatarproduct={item.avatarproduct}
-                                        price={item.price * (dataUser.sale / 100)}
-                                        title={item.title}
-                                        shop="test"
-                                    />
-                                </Link>
-                            </>
+                            <Link to={"/product/" + item.id} key={uniqid()}>
+                                <CardProduct
+                                    key={uniqid()}
+                                    avatarproduct={item.avatarproduct}
+                                    price={item.price * (1 - (dataUser.sale / 100))}
+                                    title={item.title}
+                                    shop="test"
+                                />
+                            </Link>
                         )
                     })}
                 </div>

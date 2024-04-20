@@ -5,11 +5,9 @@ import { ModalShop } from './ModalShop/ModalShop';
 import { useParams } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import { api } from '../../../../env';
-import {Delete} from "../../../icons/Delete.tsx";
-import {Edit} from "../../../icons/Edit.tsx";
 import {shop} from "../../../interfaces/shop.ts";
 import {product, products} from "../../../interfaces/product.ts";
-import axios from "axios";
+import {MyShopProductCard} from "./MyShopProductCard/MyShopProductCard.tsx";
 
 export default function MyShop() {
 
@@ -59,13 +57,6 @@ export default function MyShop() {
 
     const productData: products = dataProduct.data;
 
-    async function deleteProduct(id: number) {
-        await axios.get(`${api}/api/delete_product?id=${id}`).then((response) => {
-            console.log(response);
-        }).catch((err) => {
-            console.log(err);
-        });
-    }
 
     return (
         <>
@@ -99,26 +90,16 @@ export default function MyShop() {
 
                     {productData?.map((item: product) => {
                         return (
-                            <div className="card-product-shop">
-                                <img
-                                    src={item.avatarproduct}
-                                    alt=""/>
-                                <p className="card-shop-shop">{shopData.title}</p>
-                                <p className="card-title-shop">{item.title}</p>
-                                <p className="card-price-shop">{item.price} ₽</p>
-                                <div
-                                    className="d-flex justify-content-center gap-3 align-items-center controls-shop-item">
-                                    <button className="edit-button-shop" onClick={handleShowEdit}><Edit/></button>
-                                    <button className="edit-button-shop"
-                                            onClick={() => {
-                                                deleteProduct(item.id)
-                                            }}
-                                    ><Delete/></button>
-                                </div>
-                            </div>
-                        );
+                            <MyShopProductCard
+                                key={item.id}
+                                avatarproduct={item.avatarproduct}
+                                price={item.price}
+                                id={item.id}
+                                title={item.title}
+                                handleShowEdit={handleShowEdit}
+                            />
+                        )
                     })}
-
 
                     <ModalShop
                         current={current}
