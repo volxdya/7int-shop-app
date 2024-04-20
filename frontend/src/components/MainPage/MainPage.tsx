@@ -28,6 +28,9 @@ export default function MainPage() {
 
     const dataShops: shops = allShops.data;
 
+    const userData = useQuery(`dataUser`);
+
+    const dataUser = userData.data;
 
     return (
         <>
@@ -41,7 +44,7 @@ export default function MainPage() {
                                     <CardProduct
                                         key={item.id}
                                         avatarproduct={item.avatarproduct}
-                                        price={item.price}
+                                        price={item.price * (dataUser.sale / 100)}
                                         title={item.title}
                                         shop="test"
                                     />

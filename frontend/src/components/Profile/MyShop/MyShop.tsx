@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import {useState} from 'react';
 import './MyShop.css';
 import { ModalShop } from './ModalShop/ModalShop';
 import { useParams } from 'react-router-dom';
@@ -12,6 +12,7 @@ import {product, products} from "../../../interfaces/product.ts";
 import axios from "axios";
 
 export default function MyShop() {
+
 
     const [show, setShow] = useState(false);
     const [current, setCurrent] = useState("");

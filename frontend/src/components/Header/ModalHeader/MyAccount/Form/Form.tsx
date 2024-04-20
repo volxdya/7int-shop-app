@@ -58,6 +58,9 @@ export function Form({
                     <button className="upperCase button-change mt-5">
                         Change
                     </button>
+                    <button type="button" className="upperCase button-change mt-3 warning-btn" onClick={() => console.log("Скоро...")}>
+                        Delete Account (Soon)
+                    </button>
                 </div>
             </form>
         </div>
