@@ -18,6 +18,7 @@ export function Shops() {
     );
     if (isLoading) return <p>Загрузка...</p>;
     if (error) return <p>Ошибка:</p>;
+
     return (
         <>
             {data.length > 0 && (

@@ -44,7 +44,8 @@ export default function MainPage() {
                                 <CardProduct
                                     key={uniqid()}
                                     avatarproduct={item.avatarproduct}
-                                    price={item.price * (1 - (dataUser.sale / 100))}
+                                    // price={item.price * (1 - (dataUser.sale / 100))}
+                                    price={item.price}
                                     title={item.title}
                                     shop="test"
                                 />

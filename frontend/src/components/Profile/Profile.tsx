@@ -5,7 +5,7 @@ import { Shops } from './Shops/Shops';
 
 export default function Profile() {
     const userData = useGetUserData().data;
-
+    console.log(userData)
     if (userData) {
         return (
             <>
