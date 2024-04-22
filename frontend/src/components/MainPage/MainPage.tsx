@@ -29,9 +29,11 @@ export default function MainPage() {
 
     const dataShops: shops = allShops.data;
 
-    const userData = useQuery(`dataUser`);
-
-    const dataUser = userData.data;
+    // const userData = useQuery('dataUser');
+    //
+    // // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // // @ts-expect-error
+    // const data: user = userData?.data;
 
     return (
         <>
@@ -44,7 +46,6 @@ export default function MainPage() {
                                 <CardProduct
                                     key={uniqid()}
                                     avatarproduct={item.avatarproduct}
-                                    // price={item.price * (1 - (dataUser.sale / 100))}
                                     price={item.price}
                                     title={item.title}
                                     shop="test"
