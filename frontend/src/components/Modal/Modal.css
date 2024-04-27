@@ -27,10 +27,13 @@
 
 .modal-content {
     background-color: #1F1F1F;
-    overflow: hidden;
+    overflow: scroll;
     height: 900px;
     top: 0;
     border-radius: 25px;
+}
+.modal-content::-webkit-scrollbar {
+    display: none;
 }
 .modal {
     height: 940px;

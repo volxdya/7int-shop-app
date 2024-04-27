@@ -61,13 +61,13 @@ export default function MainPage() {
                 <div className="d-flex flex-wrap gap-5">
                     {dataShops?.map((item: shop) => {
                         return (
-                            <>
+                            <Link to={"/shop/" + item.id} key={uniqid()}>
                                 <CardShop
                                     title={item.title}
-                                    key={item.id}
+                                    key={uniqid()}
                                     avatarshop={item.avatarshop}
                                 />
-                            </>
+                            </Link>
                         )
                     })}
                 </div>

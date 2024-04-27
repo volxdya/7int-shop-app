@@ -5,10 +5,13 @@ import {currentId} from "../../../../api/user/currentId.ts";
 import {Promo, Promos} from "../../../../interfaces/promo.ts";
 import {ChangeEvent, FormEvent, useState} from "react";
 import axios from "axios";
+import {Alert} from "react-bootstrap";
 
 
 export function PromocodesBody() {
     const [title, setTitle] = useState("");
+    const [errorPromo, setErrorPromo] = useState("");
+    const [success, setSuccess] = useState("");
 
     function handleChange(event: ChangeEvent<HTMLInputElement>) {
         setTitle(event.target.value);
@@ -17,27 +20,35 @@ export function PromocodesBody() {
     function handleSubmit(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
 
-        axios.get(`${api}/api/get_promocode_by_input?title=${title}`).then((response) => {
-            if (response.data !== "") {
-                if (!response.data.isactivated) {
-                    axios.post(`${api}/api/use_promocode`, {
-                        author_id: currentId(),
-                        id: response.data.id,
-                    }).then((response) => {
-                        console.log(response.data);
-                    }).catch((error) => {
-                        console.log(error);
-                    });
+        if (title == "") {
+            setErrorPromo("You cannot enter an empty promocode");
+        } else {
+            axios.get(`${api}/api/get_promocode_by_input?title=${title}`).then((response) => {
+                if (response.data !== "") {
+                    if (!response.data.isactivated) {
+                        axios.post(`${api}/api/use_promocode`, {
+                            author_id: currentId(),
+                            id: response.data.id,
+                        }).then(() => {
+                            setErrorPromo("");
+                            setTitle("");
+                            setSuccess("Success!");
+                        }).catch((error) => {
+                            console.log(error);
+                        });
+                    }
+                    else {
+                        setErrorPromo("The promocode has already been activated previously");
+                        setSuccess("");
+                    }
+                } else {
+                    setErrorPromo("There is no promo code");
+                    setSuccess("");
                 }
-                else {
-                    console.log("Промик есть, но он активирован");
-                }
-            } else {
-                console.log("Промика нет")
-            }
-        }).catch((error) => {
-            console.log(error);
-        })
+            }).catch((error) => {
+                console.log(error);
+            })
+        }
     }
 
 
@@ -64,7 +75,22 @@ export function PromocodesBody() {
                             value={title}
                             onChange={handleChange}
                         />
-                        <button className="upperCase button-change mt-4">Activate</button>
+                        {errorPromo !== "" && !success && (
+                            <div className="mt-4">
+                                <Alert key="error" variant="danger">
+                                    {errorPromo}
+                                </Alert>
+                            </div>
+                        )}
+
+                        {success && errorPromo === "" && (
+                            <div className="mt-4">
+                                <Alert key="success" variant="success">
+                                    {success}
+                                </Alert>
+                            </div>
+                        )}
+                        <button className="upperCase button-change mt-2">Activate</button>
                     </div>
                 </form>
             </div>
