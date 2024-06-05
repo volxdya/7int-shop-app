@@ -1,21 +1,21 @@
-Start guide:
-you need postgresql + node.js on your PC
-maybe AFTER all aplication will use on docker containers
+# Start guide:
 
-FRONTEND:
-1. open terminal (CTRL + ` (vsCODE))
-2. cd ./frontend
-3. npm install
-4. DEV BUILD:
-    npm run dev
-PRODUCTION BUILD:
-    npm run build
-    npm run preview
+You need postgresql + node.js on your PC
 
-BACKEND:
-1. open terminal (CTRL + ` (vsCODE))
-2. cd ./backend
-3. npm install
-4. npm run server
+Maybe AFTER all aplication will use on docker containers
 
-open http://localhost:5173/ or http://localhost:PORT ON TERMINAL FRONTEND/ and use 7int-app
+* FRONTEND dev build:
+```bash
+1 cd ./frontend
+2 npm install
+3. npm run dev
+4. http://localhost:5173/
+```
+
+* BACKEND:
+```bash
+1. cd ./backend
+2. npm install
+3. npm run server
+4. http://localhost:PORT
+```
